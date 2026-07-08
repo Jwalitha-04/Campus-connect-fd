@@ -40,71 +40,23 @@ export default function AmbientOverlay({ children }: { children: React.ReactNode
     }
   };
 
-  const isMorning = hour >= 6 && hour < 11;
-  const isMidday = hour >= 11 && hour < 16;
-  const isEvening = hour >= 16 && hour < 19;
-  const isNight = hour >= 19 || hour < 6;
-
-  let variableOverrides = "";
-  if (isMorning) {
-    variableOverrides = `
-      --paper-stock: #FAF7F2;
-      --riso-orange-paper: #FFF9F9;
-      --riso-marine-paper: #FFF9F9;
-      --riso-violet-paper: #FFF9F9;
-      --riso-yellow-paper: #FFFDF5;
-      --ink-black: #2E2824;
-      --riso-orange: #9E3535;
-      --riso-marine: #9E3535;
-      --riso-violet: #9E3535;
-      --riso-yellow: #9E3535;
-    `;
-  } else if (isMidday) {
-    variableOverrides = `
-      --paper-stock: #F2EEE4;
-      --riso-orange-paper: #FFF7F7;
-      --riso-marine-paper: #FFF7F7;
-      --riso-violet-paper: #FFF7F7;
-      --riso-yellow-paper: #FFFDF0;
-      --ink-black: #201D1A;
-      --riso-orange: #8C2A2A;
-      --riso-marine: #8C2A2A;
-      --riso-violet: #8C2A2A;
-      --riso-yellow: #8C2A2A;
-    `;
-  } else if (isEvening) {
-    variableOverrides = `
-      --paper-stock: #ECE6D9;
-      --riso-orange-paper: #FFF1F1;
-      --riso-marine-paper: #FFF1F1;
-      --riso-violet-paper: #FFF1F1;
-      --riso-yellow-paper: #FFFBE0;
-      --ink-black: #1B1816;
-      --riso-orange: #7C2424;
-      --riso-marine: #7C2424;
-      --riso-violet: #7C2424;
-      --riso-yellow: #7C2424;
-    `;
-  } else if (isNight) {
-    variableOverrides = `
-      --paper-stock: #181614;
-      --riso-orange-paper: #2D1A1A;
-      --riso-marine-paper: #2D1A1A;
-      --riso-violet-paper: #2D1A1A;
-      --riso-yellow-paper: #2D1A1A;
-      --ink-black: #F2EEE4;
-      --riso-orange: #A63C3C;
-      --riso-marine: #A63C3C;
-      --riso-violet: #A63C3C;
-      --riso-yellow: #A63C3C;
-      --success-ink: #2DB57B;
-    `;
-  }
+  let variableOverrides = `
+    --paper-stock: #F2EEE4;
+    --riso-orange-paper: #FFF7F7;
+    --riso-marine-paper: #FFF7F7;
+    --riso-violet-paper: #FFF7F7;
+    --riso-yellow-paper: #FFFDF0;
+    --ink-black: #201D1A;
+    --riso-orange: #8C2A2A;
+    --riso-marine: #8C2A2A;
+    --riso-violet: #8C2A2A;
+    --riso-yellow: #8C2A2A;
+  `;
 
   const isLandingPage = pathname === "/";
 
   return (
-    <div className={`relative w-full min-h-screen flex flex-col bg-paper-stock bg-riso-run ${isNight ? "dark" : ""}`}>
+    <div className={`relative w-full min-h-screen flex flex-col bg-paper-stock bg-riso-run`}>
       {/* Global CSS injection for time-of-day parameters */}
       <style dangerouslySetInnerHTML={{ __html: `
         :root {
