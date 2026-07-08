@@ -21,7 +21,7 @@ export default async function ProfileEditPage() {
     .single();
 
   return (
-    <div className="w-full min-h-screen bg-cork-bg flex items-center justify-center p-4 font-sans select-none">
+    <div className="w-full min-h-screen bg-[#F2EEE4] flex items-center justify-center p-4 font-sans select-none">
       <ProfileForm initialProfile={profile} userId={user.id} />
     </div>
   );
