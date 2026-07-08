@@ -21,16 +21,6 @@ interface LostFoundItem {
   location: string;
   date_lost_found: string;
   verification_question: string | null;
-}
-
-interface LostFoundItem {
-  id: string;
-  title: string;
-  type: "lost" | "found";
-  category: string;
-  location: string;
-  date_lost_found: string;
-  verification_question: string | null;
   finder?: Profile | null;
 }
 
@@ -98,41 +88,41 @@ export default function ClaimsDashboard({
   };
 
   return (
-    <div className="w-full min-h-screen bg-cork-bg p-6 flex flex-col font-sans select-none relative">
+    <div className="w-full min-h-screen bg-[#F2EEE4] bg-riso-run p-6 flex flex-col font-sans select-none relative text-[#201D1A]">
       
       {/* Notice Board Header */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 border-b border-chalk-ink/20 pb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 border-b border-dashed border-[#201D1A]/30 pb-6">
         <div>
           <Link href="/">
-            <h1 className="font-display text-4xl font-bold tracking-wide text-chalk-ink hover:opacity-85 transition-opacity">
-              {activeTab === "received" ? "Claims Received" : "Claims Made"}
+            <h1 className="font-serif text-3xl font-black uppercase tracking-widest text-[#201D1A] hover:opacity-85 transition-opacity">
+              {activeTab === "received" ? "CLAIMS RECEIVED" : "CLAIMS MADE"}
             </h1>
           </Link>
-          <p className="font-hand text-xl text-chalk-ink/75 mt-1">
+          <p className="font-mono text-[10px] uppercase font-bold text-[#201D1A]/60 mt-2 tracking-widest">
             {activeTab === "received" 
-              ? "\"Review responses to your found bulletins and verify ownership\""
-              : "\"Track the status of your claims and check finder decisions\""
+              ? "Review responses to your found bulletins and verify ownership"
+              : "Track the status of your claims and check finder decisions"
             }
           </p>
         </div>
         <div className="mt-4 md:mt-0 flex gap-4">
           <Link
             href="/lost-found"
-            className="ticket-clip flex items-center justify-center min-h-[42px] bg-sky-600 hover:bg-sky-700 text-white font-sans font-bold uppercase tracking-wider text-[10px] shadow-sm transition-all active:translate-y-[2px] px-6 cursor-pointer"
+            className="flex items-center justify-center min-h-[42px] border-2 border-[#201D1A] hover:bg-[#201D1A]/5 text-[#201D1A] font-sans font-bold uppercase tracking-wider text-[10px] shadow-[2px_2px_0px_#201D1A] transition-all active:translate-y-[2px] active:shadow-none px-6 cursor-pointer"
           >
-            Go to Notice Board
+            ← BACK TO BOARD
           </Link>
         </div>
       </div>
 
       {/* Riso-themed Tabs */}
-      <div className="flex gap-4 mb-6 border-b border-dashed border-chalk-ink/20 pb-4 max-w-5xl mx-auto w-full">
+      <div className="flex gap-4 mb-6 border-b border-dashed border-[#201D1A]/20 pb-4 max-w-5xl mx-auto w-full">
         <button
           onClick={() => handleTabChange("received")}
           className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#201D1A] shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
             activeTab === "received" 
-              ? "bg-amber-500 text-[#201D1A]" 
-              : "bg-paper-cream/60 hover:bg-white/40 text-chalk-ink"
+              ? "bg-[#8C2A2A] text-[#F2EEE4] shadow-none translate-y-0.5" 
+              : "bg-[#EFEAD8] hover:bg-[#8C2A2A]/5 text-[#201D1A]"
           }`}
         >
           Claims Received ({receivedClaims.length})
@@ -141,8 +131,8 @@ export default function ClaimsDashboard({
           onClick={() => handleTabChange("made")}
           className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#201D1A] shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
             activeTab === "made" 
-              ? "bg-amber-500 text-[#201D1A]" 
-              : "bg-paper-cream/60 hover:bg-white/40 text-chalk-ink"
+              ? "bg-[#8C2A2A] text-[#F2EEE4] shadow-none translate-y-0.5" 
+              : "bg-[#EFEAD8] hover:bg-[#8C2A2A]/5 text-[#201D1A]"
           }`}
         >
           Claims Made ({madeClaims.length})
@@ -150,18 +140,18 @@ export default function ClaimsDashboard({
       </div>
 
       {activeClaims.length === 0 ? (
-        <div className="flex-1 flex items-center justify-center py-20 bg-paper-cream/40 border border-dashed border-paper-border rounded-sm max-w-2xl mx-auto w-full">
+        <div className="flex-1 flex items-center justify-center py-20 bg-[#EFEAD8] border-2 border-dashed border-[#201D1A]/30 max-w-2xl mx-auto w-full">
           <div className="text-center">
-            <span className="font-hand text-2xl text-gray-500 italic block">
+            <span className="font-serif font-black text-2xl text-[#201D1A]/60 uppercase block">
               {activeTab === "received" 
-                ? "No pending claims to review."
-                : "You haven't claimed any items yet."
+                ? "NO PENDING CLAIMS"
+                : "NO CLAIMS SUBMITTED"
               }
             </span>
-            <p className="font-sans text-xs text-gray-400 mt-2">
+            <p className="font-mono text-xs font-bold uppercase tracking-wider text-[#201D1A]/40 mt-4">
               {activeTab === "received"
-                ? "Any claim tickets submitted for your reported items will appear here."
-                : "Go search the notice board and file a claim ticket for any lost items!"
+                ? "Any claim tickets submitted for your items will appear here."
+                : "Search the notice board to file a claim ticket."
               }
             </p>
           </div>
@@ -171,47 +161,47 @@ export default function ClaimsDashboard({
           
           {/* Left Column: Claims List */}
           <div className="w-full lg:w-80 space-y-4">
-            <span className="font-mono text-[9px] text-sky-400 dark:text-amber-500 uppercase tracking-widest block px-1">
-              {activeTab === "received" ? "Inbox" : "Outbox"} ({activeClaims.length})
+            <span className="font-mono text-[9px] font-bold text-[#8C2A2A] uppercase tracking-widest block px-1">
+              {activeTab === "received" ? "INBOX" : "OUTBOX"} ({activeClaims.length})
             </span>
             <div className="space-y-3">
               {activeClaims.map((claim) => (
                 <div
                   key={claim.id}
                   onClick={() => setSelectedClaimId(claim.id)}
-                  className={`p-4 bg-paper-cream border border-paper-border text-chalk-ink shadow-sm cursor-pointer rounded-sm transition-all relative ${
+                  className={`p-4 bg-[#EFEAD8] border-2 border-[#201D1A] shadow-[3px_3px_0px_#201D1A] cursor-pointer rounded-none transition-all relative ${
                     selectedClaimId === claim.id
-                      ? "border-amber-500 shadow-md ring-1 ring-amber-500/20 scale-[1.01]"
-                      : "hover:bg-white/40 opacity-90"
+                      ? "border-[#8C2A2A] shadow-[3px_3px_0px_#8C2A2A] scale-[1.01]"
+                      : "hover:bg-[#201D1A]/5"
                   }`}
                 >
-                  <div className="absolute top-2 right-2">
+                  <div className="absolute top-3 right-3">
                     {activeTab === "received" ? (
-                      <span className="font-mono text-[8px] text-red-500 bg-red-50 px-1 py-0.5 rounded-sm">
+                      <span className="font-mono text-[8px] font-bold border border-[#8C2A2A] text-[#8C2A2A] bg-transparent px-1.5 py-0.5 uppercase tracking-wider">
                         {claim.item?.type === "found" ? "CLAIM" : "INFO"}
                       </span>
                     ) : (
-                      <span className={`font-mono text-[8px] px-1 py-0.5 rounded-sm uppercase ${
+                      <span className={`font-mono text-[8px] font-bold border px-1.5 py-0.5 uppercase tracking-wider ${
                         claim.status === "approved"
-                          ? "text-green-600 bg-green-50"
+                          ? "border-[#1B8555] text-[#1B8555] bg-transparent"
                           : claim.status === "rejected"
-                          ? "text-red-600 bg-red-50"
-                          : "text-amber-600 bg-amber-50"
+                          ? "border-[#8C2A2A] text-[#8C2A2A] bg-transparent"
+                          : "border-[#D97706] text-[#D97706] bg-transparent"
                       }`}>
                         {claim.status}
                       </span>
                     )}
                   </div>
-                  <h3 className="font-display font-bold text-sm line-clamp-1 pr-8">
+                  <h3 className="font-serif font-black text-sm uppercase tracking-wide line-clamp-1 pr-12 text-[#201D1A]">
                     {claim.item?.title}
                   </h3>
-                  <p className="font-hand text-xs text-gray-500 mt-1">
+                  <p className="font-mono text-[10px] font-bold text-[#201D1A]/60 mt-1 uppercase">
                     {activeTab === "received" 
-                      ? `From: ${claim.claimant?.display_name}`
-                      : `Finder: ${claim.item?.finder?.display_name || "Campus Member"}`
+                      ? `FROM: ${claim.claimant?.display_name}`
+                      : `FINDER: ${claim.item?.finder?.display_name || "Campus Member"}`
                     }
                   </p>
-                  <span className="font-mono text-[9px] text-sky-400 block mt-2">
+                  <span className="font-mono text-[9px] font-bold text-[#8C2A2A] block mt-2 uppercase tracking-wider">
                     {new Date(claim.created_at).toLocaleDateString(undefined, {
                       month: "short",
                       day: "numeric",
@@ -227,46 +217,39 @@ export default function ClaimsDashboard({
           {/* Right Column: Claim Details Card */}
           <div className="flex-1">
             {selectedClaim && (
-              <div className="relative p-8 bg-paper-cream border border-paper-border text-chalk-ink shadow-paper-lift dark:shadow-paper-lift-dark rounded-sm overflow-hidden min-h-[450px] flex flex-col justify-between">
+              <div className="relative p-8 bg-[#EFEAD8] border-2 border-[#201D1A] text-[#201D1A] shadow-[4px_4px_0px_#201D1A] min-h-[450px] flex flex-col justify-between animate-press-print-in">
                 
-                {/* SVG Push Pin */}
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 2C9.23858 2 7 4.23858 7 7C7 9.38268 8.66635 11.3752 10.9 11.884V16.5C10.9 17.0523 11.3477 17.5 11.9 17.5C12.4523 17.5 12.9 17.0523 12.9 16.5V11.884C15.1336 11.3752 16.8 9.38268 16.8 7C16.8 4.23858 14.7614 2 12 2Z"
-                      fill="var(--pin-brass)"
-                    />
-                  </svg>
-                </div>
+                {/* Vintage Tape */}
+                <div className="absolute -top-3 -left-4 w-12 h-5 rotate-15 washi-tape-orange z-10" />
 
                 {/* Animated Decision Stamps (Only for received claims that you update in real time) */}
                 {activeTab === "received" && decision && (
-                  <div className="absolute inset-0 bg-paper-cream/80 flex items-center justify-center z-20 animate-stamp-in select-none pointer-events-none">
+                  <div className="absolute inset-0 bg-[#EFEAD8]/80 flex items-center justify-center z-20 animate-stamp-thud select-none pointer-events-none">
                     <div
-                      className={`text-3xl font-display font-extrabold uppercase tracking-widest border-4 px-6 py-3 rounded-md transform -rotate-12 ${
+                      className={`text-3xl font-serif font-black uppercase tracking-widest border-4 px-6 py-3 transform -rotate-12 ${
                         decision === "approved"
-                          ? "border-green-600 text-green-600"
-                          : "border-red-600 text-red-600"
+                          ? "border-[#1B8555] text-[#1B8555]"
+                          : "border-[#8C2A2A] text-[#8C2A2A]"
                       }`}
                     >
-                      {decision === "approved" ? "Approved" : "Rejected"}
+                      {decision === "approved" ? "APPROVED" : "REJECTED"}
                     </div>
                   </div>
                 )}
 
                 <div className="space-y-6">
                   {/* Item Section */}
-                  <div>
-                    <span className="font-mono text-[9px] text-sky-400 dark:text-amber-500 uppercase tracking-widest block mb-1">
-                      Target bulletin notice
+                  <div className="border-b-2 border-dashed border-[#201D1A]/30 pb-4">
+                    <span className="font-mono text-[9px] font-bold text-[#8C2A2A] uppercase tracking-widest block mb-2 border border-[#8C2A2A] px-2 py-0.5 w-max">
+                      TARGET BULLETIN NOTICE
                     </span>
-                    <h2 className="font-display text-xl font-bold tracking-wide">
+                    <h2 className="font-serif text-2xl font-black uppercase tracking-wider">
                       {selectedClaim.item?.title}
                     </h2>
-                    <p className="font-hand text-xs text-gray-500 mt-1 italic">
+                    <p className="font-mono text-[10px] font-bold text-[#201D1A]/60 mt-1 uppercase tracking-wider">
                       {activeTab === "received" 
-                        ? `Posted by you in ${selectedClaim.item?.location} on ${selectedClaim.item?.date_lost_found}`
-                        : `Posted by ${selectedClaim.item?.finder?.display_name || "Campus Member"} in ${selectedClaim.item?.location} on ${selectedClaim.item?.date_lost_found}`
+                        ? `POSTED BY YOU IN ${selectedClaim.item?.location} ON ${selectedClaim.item?.date_lost_found}`
+                        : `POSTED BY ${selectedClaim.item?.finder?.display_name || "CAMPUS MEMBER"} IN ${selectedClaim.item?.location} ON ${selectedClaim.item?.date_lost_found}`
                       }
                     </p>
                   </div>
@@ -274,8 +257,8 @@ export default function ClaimsDashboard({
                   {/* Profile Info block */}
                   {activeTab === "received" ? (
                     /* Claimant Profile Info (for received claims) */
-                    <div className="p-4 bg-white/40 border border-paper-border rounded-sm relative flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full border border-sky-200 overflow-hidden bg-white/60">
+                    <div className="p-4 bg-transparent border-2 border-dashed border-[#201D1A]/30 relative flex items-center space-x-4">
+                      <div className="w-12 h-12 rounded-full border-2 border-dashed border-[#8C2A2A] overflow-hidden bg-[#F2EEE4] flex items-center justify-center shadow-[1.5px_1.5px_0px_#8C2A2A]">
                         {selectedClaim.claimant?.avatar_url ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
@@ -284,29 +267,26 @@ export default function ClaimsDashboard({
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center font-hand text-lg text-gray-400">
-                            ?
-                          </div>
+                          <div className="font-serif font-black text-xl text-[#8C2A2A]">?</div>
                         )}
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold font-sans">
-                          {selectedClaim.claimant?.display_name} (Claimant)
+                        <h4 className="font-serif text-sm font-black uppercase tracking-wider">
+                          {selectedClaim.claimant?.display_name} <span className="text-[#8C2A2A]">(CLAIMANT)</span>
                         </h4>
-                        <span className="font-hand text-xs text-red-500 block">
-                          {selectedClaim.claimant?.department} • Graduating {selectedClaim.claimant?.graduation_year || "N/A"}
+                        <span className="font-mono text-[10px] font-bold text-[#201D1A]/70 uppercase tracking-widest block mt-0.5">
+                          {selectedClaim.claimant?.department} • GRAD {selectedClaim.claimant?.graduation_year || "N/A"}
                         </span>
-                        <span className="font-mono text-[9px] text-amber-600 block mt-0.5">
-                          Reputation: {selectedClaim.claimant?.reputation_points} pts
+                        <span className="font-mono text-[9px] font-bold text-[#8C2A2A] uppercase tracking-widest block mt-1 border border-[#8C2A2A] px-1 py-0.5 w-max">
+                          REP: {selectedClaim.claimant?.reputation_points} PTS
                         </span>
                       </div>
-                      <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-red-400 opacity-20" />
                     </div>
                   ) : (
                     /* Finder Profile Info (for made claims) */
                     selectedClaim.item?.finder && (
-                      <div className="p-4 bg-white/40 border border-paper-border rounded-sm relative flex items-center space-x-3">
-                        <div className="w-10 h-10 rounded-full border border-sky-200 overflow-hidden bg-white/60">
+                      <div className="p-4 bg-transparent border-2 border-dashed border-[#201D1A]/30 relative flex items-center space-x-4">
+                        <div className="w-12 h-12 rounded-full border-2 border-dashed border-[#8C2A2A] overflow-hidden bg-[#F2EEE4] flex items-center justify-center shadow-[1.5px_1.5px_0px_#8C2A2A]">
                           {selectedClaim.item.finder.avatar_url ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img
@@ -315,116 +295,101 @@ export default function ClaimsDashboard({
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center font-hand text-lg text-gray-400">
-                              ?
-                            </div>
+                            <div className="font-serif font-black text-xl text-[#8C2A2A]">?</div>
                           )}
                         </div>
                         <div>
-                          <h4 className="text-xs font-bold font-sans">
-                            {selectedClaim.item.finder.display_name} (Finder)
+                          <h4 className="font-serif text-sm font-black uppercase tracking-wider">
+                            {selectedClaim.item.finder.display_name} <span className="text-[#8C2A2A]">(FINDER)</span>
                           </h4>
-                          <p className="font-hand text-[10px] text-gray-500 block">
-                            Wait for the finder to review your claim ticket details.
+                          <p className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-widest block mt-1">
+                            AWAITING FINDER REVIEW...
                           </p>
                         </div>
-                        <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-red-400 opacity-20" />
                       </div>
                     )
                   )}
 
                   {/* Question & Answer Lined Card */}
-                  <div className="space-y-4 pt-4 border-t border-sky-100 dark:border-amber-900/10 relative">
+                  <div className="space-y-4 pt-4 border-t-2 border-dashed border-[#201D1A]/30 relative">
                     <div>
-                      <span className="font-mono text-[9px] text-sky-400 dark:text-amber-500 uppercase tracking-widest block">
-                        Verification Question
+                      <span className="font-mono text-[9px] font-bold text-[#8C2A2A] uppercase tracking-widest block">
+                        VERIFICATION QUESTION
                       </span>
-                      <p className="font-sans text-xs font-bold leading-normal text-chalk-ink mt-1">
-                        &quot;{selectedClaim.item?.verification_question || "No question provided."}&quot;
+                      <p className="font-serif text-sm font-bold uppercase tracking-wider text-[#201D1A] mt-1">
+                        &quot;{selectedClaim.item?.verification_question || "NO QUESTION PROVIDED."}&quot;
                       </p>
                     </div>
 
                     <div>
-                      <span className="font-mono text-[9px] text-sky-400 dark:text-amber-500 uppercase tracking-widest block">
-                        {activeTab === "received" ? "Claimant's Submitted Answer" : "Your Submitted Answer"}
+                      <span className="font-mono text-[9px] font-bold text-[#8C2A2A] uppercase tracking-widest block mb-1">
+                        {activeTab === "received" ? "CLAIMANT'S SUBMITTED ANSWER" : "YOUR SUBMITTED ANSWER"}
                       </span>
-                      <p className="font-hand text-base text-sky-600 dark:text-amber-200 leading-relaxed italic bg-white/30 p-3 border border-paper-border rounded-sm mt-1">
+                      <p className="font-mono text-xs font-bold text-[#201D1A] leading-relaxed bg-[#F2EEE4] p-4 border border-dashed border-[#201D1A]/40 typewriter-caret uppercase">
                         &quot;{selectedClaim.answer}&quot;
                       </p>
                     </div>
-
-                    <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-red-400 opacity-20" />
                   </div>
                 </div>
 
                 {/* Footer Decisions / Statuses */}
                 {activeTab === "received" ? (
                   /* Incoming Claims decision buttons */
-                  <div className="flex gap-4 mt-8 border-t border-sky-100 dark:border-amber-900/20 pt-6">
+                  <div className="flex gap-4 mt-8 border-t-2 border-[#201D1A] pt-6">
                     <button
                       onClick={() => handleDecision("rejected")}
                       disabled={isPending}
-                      className="flex-1 py-3 px-4 rounded-sm border border-red-200 dark:border-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 font-sans font-bold uppercase tracking-wider text-xs shadow-sm transition-all active:translate-y-[1px] cursor-pointer disabled:opacity-50"
+                      className="flex-1 min-h-[42px] border-2 border-[#201D1A] text-[#201D1A] hover:bg-[#201D1A]/5 font-sans font-bold uppercase tracking-wider text-xs shadow-[2px_2px_0px_#201D1A] transition-all active:translate-y-[2px] active:shadow-none cursor-pointer disabled:opacity-50"
                     >
-                      ❌ Reject Claim
+                      ❌ REJECT
                     </button>
                     <button
                       onClick={() => handleDecision("approved")}
                       disabled={isPending}
-                      className="flex-1 py-3 px-4 rounded-sm bg-green-600 hover:bg-green-700 text-white font-sans font-bold uppercase tracking-wider text-xs shadow-md transition-all active:translate-y-[1px] cursor-pointer disabled:opacity-50"
+                      className="flex-[2] min-h-[42px] border-2 border-[#1B8555] bg-[#1B8555] hover:bg-[#1B8555]/90 text-[#F2EEE4] font-sans font-bold uppercase tracking-wider text-xs shadow-[2px_2px_0px_#201D1A] transition-all active:translate-y-[2px] active:shadow-none cursor-pointer disabled:opacity-50"
                     >
-                      🏆 Approve & Verify (+20 Pts)
+                      🏆 VERIFY (+20 PTS)
                     </button>
                   </div>
                 ) : (
                   /* Outgoing Claims statuses */
                   selectedClaim.status === "pending" ? (
-                    <div className="mt-8 border-t border-sky-100 dark:border-amber-900/20 pt-6 text-center">
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-600 border border-dashed border-amber-500/50 px-4 py-2 bg-amber-500/5 rounded-none">
-                        ⏳ Claim Ticket Pending Evaluation
+                    <div className="mt-8 border-t-2 border-[#201D1A] pt-6 text-center">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#D97706] border-2 border-dashed border-[#D97706] px-4 py-2 inline-block">
+                        ⏳ PENDING EVALUATION
                       </span>
-                      <p className="font-sans text-[11px] text-gray-500 mt-2.5 max-w-sm mx-auto leading-relaxed">
-                        The finder is currently reviewing your verification answer. If approved, the item will be marked returned, and you can coordinate pickup.
+                      <p className="font-mono text-[10px] font-bold text-[#201D1A]/60 mt-3 max-w-sm mx-auto leading-relaxed uppercase">
+                        THE FINDER IS CURRENTLY REVIEWING YOUR ANSWER. IF APPROVED, YOU CAN COORDINATE PICKUP.
                       </p>
                     </div>
                   ) : selectedClaim.status === "approved" ? (
-                    <div className="mt-8 border-t border-sky-100 dark:border-amber-900/20 pt-6 text-center relative space-y-4">
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15">
-                        <div className="text-4xl font-display font-black border-4 border-green-600 text-green-600 px-6 py-2 uppercase transform -rotate-12">
-                          APPROVED
-                        </div>
-                      </div>
+                    <div className="mt-8 border-t-2 border-[#201D1A] pt-6 text-center relative space-y-4">
                       <div className="relative z-10 space-y-3">
-                        <span className="font-mono text-xs font-bold uppercase tracking-wider text-green-600 border border-dashed border-green-600/50 px-4 py-2 bg-green-600/5 rounded-none inline-block">
-                          🎉 Claim Ticket Approved
+                        <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#1B8555] border-2 border-dashed border-[#1B8555] px-4 py-2 inline-block">
+                          🎉 TICKET APPROVED
                         </span>
-                        <p className="font-sans text-[11px] text-gray-500 max-w-sm mx-auto leading-relaxed">
-                          Ownership verified! Please coordinate with the finder to retrieve your item.
+                        <p className="font-mono text-[10px] font-bold text-[#201D1A]/70 max-w-sm mx-auto leading-relaxed uppercase">
+                          OWNERSHIP VERIFIED! COORDINATE WITH THE FINDER TO RETRIEVE YOUR ITEM.
                         </p>
                         <div className="pt-2">
                           <a
                             href={`https://meet.jit.si/CampusConnect-Claim-${selectedClaim.id}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center min-h-[38px] px-6 bg-gradient-teal text-white font-sans font-bold text-xs uppercase shadow-md hover:opacity-95 transition-all active:scale-[0.98] cursor-pointer"
+                            className="inline-flex items-center justify-center min-h-[42px] px-6 border-2 border-[#1B8555] bg-[#1B8555] text-[#F2EEE4] font-sans font-bold text-[10px] uppercase tracking-wider shadow-[2px_2px_0px_#201D1A] hover:opacity-95 transition-all active:translate-y-[2px] active:shadow-none cursor-pointer"
                           >
-                            🎥 Join Online Meeting Room
+                            🎥 JOIN ONLINE MEETING
                           </a>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    <div className="mt-8 border-t border-sky-100 dark:border-amber-900/20 pt-6 text-center relative">
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15">
-                        <div className="text-4xl font-display font-black border-4 border-red-600 text-red-600 px-6 py-2 uppercase transform -rotate-12">
-                          REJECTED
-                        </div>
-                      </div>
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-red-600 border border-dashed border-red-600/50 px-4 py-2 bg-red-600/5 rounded-none">
-                        ❌ Claim Ticket Rejected
+                    <div className="mt-8 border-t-2 border-[#201D1A] pt-6 text-center relative">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#8C2A2A] border-2 border-dashed border-[#8C2A2A] px-4 py-2 inline-block">
+                        ❌ TICKET REJECTED
                       </span>
-                      <p className="font-sans text-[11px] text-gray-500 mt-2.5 max-w-sm mx-auto leading-relaxed">
-                        The finder could not verify ownership based on your answer. You can submit another claim on the board with more details.
+                      <p className="font-mono text-[10px] font-bold text-[#201D1A]/60 mt-3 max-w-sm mx-auto leading-relaxed uppercase">
+                        THE FINDER COULD NOT VERIFY OWNERSHIP. YOU CAN SUBMIT ANOTHER CLAIM WITH MORE DETAILS.
                       </p>
                     </div>
                   )
