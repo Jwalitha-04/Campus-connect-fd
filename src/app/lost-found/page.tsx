@@ -80,7 +80,7 @@ function RisoFlyerCard({ item, index }: { item: LostFoundItem; index: number }) 
   return (
     <div
       id={`item-${item.type}-${item.id}`}
-      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-orange-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
+      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-orange-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
       style={{ "--section-ink": "var(--riso-orange)" } as React.CSSProperties}
     >
       {/* Staple snap */}
@@ -128,39 +128,39 @@ function RisoFlyerCard({ item, index }: { item: LostFoundItem; index: number }) 
 
       {/* Category chip and status */}
       <div className="flex justify-between items-start mb-3">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-orange border border-ink-black">
+        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-orange border border-[#201D1A]">
           {item.type.toUpperCase()}: {item.category}
         </span>
-        <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-ink-black/60">
+        <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-[#201D1A]/60">
           {item.status.startsWith("Secured at") ? "Secured" : item.status}
         </span>
       </div>
 
       {/* Riso photo treatment */}
       {item.images && item.images.length > 0 && (
-        <div className="w-full h-40 overflow-hidden mb-4 border border-ink-black shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.1)]">
+        <div className="w-full h-40 overflow-hidden mb-4 border border-[#201D1A] shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.1)]">
           <HalftonePhoto src={item.images[0]} alt={item.title} />
         </div>
       )}
 
       {/* Title */}
-      <h3 className="font-display text-lg uppercase leading-tight mb-2 text-ink-black tracking-tight">
+      <h3 className="font-display text-lg uppercase leading-tight mb-2 text-[#201D1A] tracking-tight">
         {item.title}
       </h3>
 
       {/* Description */}
-      <p className="font-sans text-xs text-ink-black/75 leading-relaxed line-clamp-3 mb-4">
+      <p className="font-sans text-xs text-[#201D1A]/75 leading-relaxed line-clamp-3 mb-4">
         {item.description}
       </p>
 
       {/* Details */}
-      <div className="mt-auto border-t border-dashed border-ink-black/30 pt-3 space-y-1 relative mb-4">
+      <div className="mt-auto border-t border-dashed border-[#201D1A]/30 pt-3 space-y-1 relative mb-4">
         <div className="flex justify-between text-[10px]">
-          <span className="font-mono uppercase text-ink-black/50">Zone</span>
+          <span className="font-mono uppercase text-[#201D1A]/50">Zone</span>
           <span className="font-sans font-bold">{item.location}</span>
         </div>
         <div className="flex justify-between text-[10px]">
-          <span className="font-mono uppercase text-ink-black/50">Date</span>
+          <span className="font-mono uppercase text-[#201D1A]/50">Date</span>
           <span className="font-sans font-bold">
             {new Date(item.date_lost_found).toLocaleDateString(undefined, {
               month: "short",
@@ -187,19 +187,19 @@ function RisoFlyerCard({ item, index }: { item: LostFoundItem; index: number }) 
               key={tab.label}
               disabled={isDisabled}
               onClick={() => handleTear(tab.label, tab.href)}
-              className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-ink-black/30 bg-paper-stock text-ink-black py-2 px-1 transition-all ${
+              className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-[#201D1A]/30 bg-paper-stock text-[#201D1A] py-2 px-1 transition-all ${
                 isTorn 
                   ? "animate-tab-tear pointer-events-none opacity-0" 
                   : isDisabled
                   ? "opacity-40 cursor-not-allowed"
-                  : "hover:bg-ink-black/5 cursor-pointer hover:border-ink-black"
+                  : "hover:bg-ink-black/5 cursor-pointer hover:border-[#201D1A]"
               }`}
               aria-label={`${tab.label} this flyer`}
             >
               {isTorn ? "TORN" : (
                 <div className="flex flex-col items-center">
                   <span>{tab.label}</span>
-                  <span className="text-[7.5px] font-normal text-ink-black/60">#{item.id.slice(0, 4)}</span>
+                  <span className="text-[7.5px] font-normal text-[#201D1A]/60">#{item.id.slice(0, 4)}</span>
                 </div>
               )}
             </button>
@@ -298,10 +298,10 @@ export default function LostFoundBoardPage() {
     <div className="w-full min-h-screen p-6 flex flex-col font-sans select-none relative max-w-7xl mx-auto">
       
       {/* Notice Board Header */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-ink-black pb-6 -rotate-0.5">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-[#201D1A] pb-6 -rotate-0.5">
         <div className="text-center md:text-left pl-16">
           <Link href="/">
-            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-ink-black hover:opacity-85 transition-opacity" data-text="Lost & Found Press Run" style={{ "--section-ink": "var(--riso-orange)" } as React.CSSProperties}>
+            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-[#201D1A] hover:opacity-85 transition-opacity" data-text="Lost & Found Press Run" style={{ "--section-ink": "var(--riso-orange)" } as React.CSSProperties}>
               Lost & Found Press Run
             </h1>
           </Link>
@@ -312,7 +312,7 @@ export default function LostFoundBoardPage() {
         <div className="mt-4 md:mt-0">
           <Link
             href="/lost-found/report"
-            className="flex items-center justify-center min-h-[46px] border-2 border-ink-black font-mono font-bold text-xs uppercase tracking-wider px-8 bg-riso-yellow-paper text-ink-black hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer shadow-[2px_2px_0px_rgba(0,0,0,0.15)]"
+            className="flex items-center justify-center min-h-[46px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase tracking-wider px-8 bg-riso-yellow-paper text-[#201D1A] hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer shadow-[2px_2px_0px_rgba(0,0,0,0.15)]"
           >
             PRINT NEW FLYER
           </Link>
@@ -324,7 +324,7 @@ export default function LostFoundBoardPage() {
         <StringOverlay matches={matches} boardRef={boardRef} />
         
         {/* Sidebar Filters */}
-        <aside className="w-full lg:w-64 p-6 bg-riso-yellow-paper border-2 border-ink-black text-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.2)] self-start relative">
+        <aside className="w-full lg:w-64 p-6 bg-riso-yellow-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.2)] self-start relative">
           
           {/* Washi tape at top of sidebar */}
           <div className="absolute -top-3.5 -left-4 w-14 h-5 rotate-12 washi-tape-marine z-10" />
@@ -333,7 +333,7 @@ export default function LostFoundBoardPage() {
             
             {/* Search */}
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-2">
                 Search Bulletins
               </span>
               <input
@@ -341,13 +341,13 @@ export default function LostFoundBoardPage() {
                 placeholder="Search..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               />
             </div>
 
             {/* Notice Type tabs */}
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-2">
                 Notice Type
               </span>
               <div className="flex flex-col space-y-2">
@@ -361,8 +361,8 @@ export default function LostFoundBoardPage() {
                     onClick={() => setSelectedType(t.value as any)}
                     className={`text-left text-xs font-bold uppercase tracking-wider py-1.5 px-3 border border-dashed transition-all cursor-pointer ${
                       selectedType === t.value
-                        ? "border-solid border-2 border-ink-black bg-riso-orange text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]"
-                        : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                        ? "border-solid border-2 border-[#201D1A] bg-riso-orange text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]"
+                        : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                     }`}
                   >
                     {t.label}
@@ -373,7 +373,7 @@ export default function LostFoundBoardPage() {
 
             {/* Categories */}
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-2">
                 Category
               </span>
               <div className="flex flex-col space-y-1.5">
@@ -390,7 +390,7 @@ export default function LostFoundBoardPage() {
                       onChange={() => setSelectedCategory(cat.value)}
                       className="accent-riso-orange cursor-pointer"
                     />
-                    <span className="font-mono text-ink-black/80">{cat.label}</span>
+                    <span className="font-mono text-[#201D1A]/80">{cat.label}</span>
                   </label>
                 ))}
               </div>
@@ -398,7 +398,7 @@ export default function LostFoundBoardPage() {
 
             {/* Locations */}
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-2">
                 Locations
               </span>
               <div className="flex flex-col space-y-1.5">
@@ -413,7 +413,7 @@ export default function LostFoundBoardPage() {
                       onChange={() => toggleLocation(loc)}
                       className="accent-riso-orange cursor-pointer"
                     />
-                    <span className="font-mono text-ink-black/80">{loc}</span>
+                    <span className="font-mono text-[#201D1A]/80">{loc}</span>
                   </label>
                 ))}
               </div>
@@ -432,8 +432,8 @@ export default function LostFoundBoardPage() {
               </span>
             </div>
           ) : filteredItems.length === 0 ? (
-            <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-ink-black/40">
-              <span className="font-hand text-xl text-ink-black/60 italic block">
+            <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-[#201D1A]/40">
+              <span className="font-hand text-xl text-[#201D1A]/60 italic block">
                 Press is idle. Nothing's run yet.
               </span>
               <Link

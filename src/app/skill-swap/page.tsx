@@ -71,7 +71,7 @@ function RisoSkillListingCard({
 
   return (
     <div
-      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-marine-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
+      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-marine-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
       style={{ "--section-ink": "var(--riso-marine)" } as React.CSSProperties}
     >
       {/* Staple */}
@@ -88,7 +88,7 @@ function RisoSkillListingCard({
 
       {/* Tags */}
       <div className="flex justify-between items-center mb-3">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-marine border border-ink-black shadow-[1px_1px_0px_rgba(0,0,0,0.1)]">
+        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-marine border border-[#201D1A] shadow-[1px_1px_0px_rgba(0,0,0,0.1)]">
           {listing.category}
         </span>
         {isVerified && (
@@ -99,27 +99,27 @@ function RisoSkillListingCard({
       </div>
 
       {/* Headline */}
-      <h3 className="font-display text-lg uppercase leading-tight mb-2 text-ink-black tracking-tight">
+      <h3 className="font-display text-lg uppercase leading-tight mb-2 text-[#201D1A] tracking-tight">
         {listing.name}
       </h3>
 
       {/* Description */}
-      <p className="font-sans text-xs text-ink-black/75 leading-relaxed line-clamp-3 mb-4">
+      <p className="font-sans text-xs text-[#201D1A]/75 leading-relaxed line-clamp-3 mb-4">
         {listing.description}
       </p>
 
       {/* Meta details */}
-      <div className="mt-auto border-t border-dashed border-ink-black/30 pt-3 space-y-1 relative text-[10px] mb-4">
+      <div className="mt-auto border-t border-dashed border-[#201D1A]/30 pt-3 space-y-1 relative text-[10px] mb-4">
         <div className="flex justify-between">
-          <span className="font-mono uppercase text-ink-black/50">Level</span>
+          <span className="font-mono uppercase text-[#201D1A]/50">Level</span>
           <span className="font-sans font-bold capitalize">{listing.proficiency_level}</span>
         </div>
         <div className="flex justify-between">
-          <span className="font-mono uppercase text-ink-black/50">Times</span>
+          <span className="font-mono uppercase text-[#201D1A]/50">Times</span>
           <span className="font-sans font-bold line-clamp-1 max-w-[120px] text-right">{listing.availability}</span>
         </div>
-        <div className="flex justify-between pt-1 border-t border-dashed border-ink-black/20">
-          <span className="font-mono uppercase text-ink-black/50">By</span>
+        <div className="flex justify-between pt-1 border-t border-dashed border-[#201D1A]/20">
+          <span className="font-mono uppercase text-[#201D1A]/50">By</span>
           <span className="font-sans font-bold">{listing.profiles?.display_name || "Campus Member"}</span>
         </div>
       </div>
@@ -134,16 +134,16 @@ function RisoSkillListingCard({
                 key={tab}
                 disabled={isTorn}
                 onClick={() => handleTear(tab)}
-                className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-ink-black/30 bg-paper-stock text-ink-black py-2 px-1 transition-all ${
+                className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-[#201D1A]/30 bg-paper-stock text-[#201D1A] py-2 px-1 transition-all ${
                   isTorn 
                     ? "animate-tab-tear pointer-events-none opacity-0" 
-                    : "hover:bg-ink-black/5 cursor-pointer hover:border-ink-black"
+                    : "hover:bg-ink-black/5 cursor-pointer hover:border-[#201D1A]"
                 }`}
               >
                 {isTorn ? "TORN" : (
                   <div className="flex flex-col items-center">
                     <span>{tab}</span>
-                    <span className="text-[7.5px] font-normal text-ink-black/60">#{listing.id.slice(0, 4)}</span>
+                    <span className="text-[7.5px] font-normal text-[#201D1A]/60">#{listing.id.slice(0, 4)}</span>
                   </div>
                 )}
               </button>
@@ -151,7 +151,7 @@ function RisoSkillListingCard({
           })}
         </div>
       ) : (
-        <div className="perf-line pt-3 text-center text-[9px] font-mono text-ink-black/50">
+        <div className="perf-line pt-3 text-center text-[9px] font-mono text-[#201D1A]/50">
           YOUR FLYER
         </div>
       )}
@@ -314,10 +314,10 @@ export default function SkillSwapBoardPage() {
     <div className="w-full min-h-screen p-6 flex flex-col font-sans select-none relative max-w-7xl mx-auto">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-ink-black pb-6 -rotate-0.5">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-[#201D1A] pb-6 -rotate-0.5">
         <div className="text-center md:text-left pl-16">
           <Link href="/">
-            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-ink-black hover:opacity-85 transition-opacity" data-text="Skill Swap Press Run" style={{ "--section-ink": "var(--riso-marine)" } as React.CSSProperties}>
+            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-[#201D1A] hover:opacity-85 transition-opacity" data-text="Skill Swap Press Run" style={{ "--section-ink": "var(--riso-marine)" } as React.CSSProperties}>
               Skill Swap Press Run
             </h1>
           </Link>
@@ -328,7 +328,7 @@ export default function SkillSwapBoardPage() {
         <div className="mt-4 md:mt-0 flex gap-4">
           <button
             onClick={() => setActiveTab(activeTab === "suggestions" ? "offering" : "suggestions")}
-            className={`flex items-center justify-center min-h-[44px] px-6 border-2 border-ink-black font-mono font-bold text-xs uppercase tracking-wider bg-riso-yellow-paper cursor-pointer active:translate-y-0.5 transition-all shadow-[2px_2px_0px_rgba(0,0,0,0.15)] ${
+            className={`flex items-center justify-center min-h-[44px] px-6 border-2 border-[#201D1A] font-mono font-bold text-xs uppercase tracking-wider bg-riso-yellow-paper cursor-pointer active:translate-y-0.5 transition-all shadow-[2px_2px_0px_rgba(0,0,0,0.15)] ${
               activeTab === "suggestions" ? "text-riso-orange border-riso-orange" : "text-riso-marine border-riso-marine"
             }`}
           >
@@ -343,8 +343,8 @@ export default function SkillSwapBoardPage() {
         <aside className="w-full lg:w-72 space-y-6">
           
           {/* Post Skill Listing Card */}
-          <div className="p-6 bg-riso-violet-paper border-2 border-ink-black text-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
-            <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-3 border-b border-dashed border-ink-black/30 pb-2">
+          <div className="p-6 bg-riso-violet-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
+            <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-3 border-b border-dashed border-[#201D1A]/30 pb-2">
               Publish Swap Offer
             </span>
             <form onSubmit={handlePostListing} className="space-y-4">
@@ -365,7 +365,7 @@ export default function SkillSwapBoardPage() {
                   name="name"
                   required
                   placeholder="Skill (e.g. Next.js, Piano)"
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
                 />
               </div>
 
@@ -375,7 +375,7 @@ export default function SkillSwapBoardPage() {
                   required
                   placeholder="Describe details..."
                   rows={2}
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine resize-none"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine resize-none"
                 />
               </div>
 
@@ -383,7 +383,7 @@ export default function SkillSwapBoardPage() {
                 <select
                   name="category"
                   required
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
                 >
                   <option value="" className="bg-paper-stock">Select Category</option>
                   {CATEGORIES.map((cat) => (
@@ -395,11 +395,11 @@ export default function SkillSwapBoardPage() {
               </div>
 
               <div className="flex gap-4 px-2">
-                <label className="flex items-center space-x-1.5 text-xs cursor-pointer font-mono text-ink-black/70">
+                <label className="flex items-center space-x-1.5 text-xs cursor-pointer font-mono text-[#201D1A]/70">
                   <input type="radio" name="type" value="offering" defaultChecked className="accent-riso-marine cursor-pointer" />
                   <span>Offering</span>
                 </label>
-                <label className="flex items-center space-x-1.5 text-xs cursor-pointer font-mono text-ink-black/70">
+                <label className="flex items-center space-x-1.5 text-xs cursor-pointer font-mono text-[#201D1A]/70">
                   <input type="radio" name="type" value="wanting" className="accent-riso-marine cursor-pointer" />
                   <span>Wanting</span>
                 </label>
@@ -409,7 +409,7 @@ export default function SkillSwapBoardPage() {
                 <select
                   name="proficiency_level"
                   required
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
                 >
                   <option value="beginner" className="bg-paper-stock">Beginner</option>
                   <option value="intermediate" className="bg-paper-stock">Intermediate</option>
@@ -423,13 +423,13 @@ export default function SkillSwapBoardPage() {
                   name="availability"
                   required
                   placeholder="Availability (e.g. Mon 4-6pm)"
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center min-h-[40px] border-2 border-ink-black font-mono font-bold text-xs uppercase bg-paper-stock text-ink-black hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer"
+                className="w-full flex items-center justify-center min-h-[40px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase bg-paper-stock text-[#201D1A] hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer"
               >
                 PRINT LISTING
               </button>
@@ -437,8 +437,8 @@ export default function SkillSwapBoardPage() {
           </div>
 
           {/* Filtering */}
-          <div className="p-6 bg-riso-yellow-paper border-2 border-ink-black text-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
-            <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-3 border-b border-dashed border-ink-black/30 pb-2">
+          <div className="p-6 bg-riso-yellow-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
+            <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-3 border-b border-dashed border-[#201D1A]/30 pb-2">
               Filter Options
             </span>
 
@@ -449,7 +449,7 @@ export default function SkillSwapBoardPage() {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-marine focus:ring-1 focus:ring-riso-marine"
               />
             </div>
 
@@ -458,7 +458,7 @@ export default function SkillSwapBoardPage() {
               <button
                 onClick={() => setCategoryFilter("all")}
                 className={`text-left text-xs py-1 px-3 border border-dashed transition-all cursor-pointer font-mono ${
-                  categoryFilter === "all" ? "border-solid border-2 border-ink-black bg-riso-marine text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                  categoryFilter === "all" ? "border-solid border-2 border-[#201D1A] bg-riso-marine text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                 }`}
               >
                 All Categories
@@ -468,7 +468,7 @@ export default function SkillSwapBoardPage() {
                   key={cat}
                   onClick={() => setCategoryFilter(cat)}
                   className={`text-left text-xs py-1 px-3 border border-dashed transition-all cursor-pointer font-mono ${
-                    categoryFilter === cat ? "border-solid border-2 border-ink-black bg-riso-marine text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                    categoryFilter === cat ? "border-solid border-2 border-[#201D1A] bg-riso-marine text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                   }`}
                 >
                   {cat}
@@ -483,13 +483,13 @@ export default function SkillSwapBoardPage() {
           {activeTab === "suggestions" ? (
             /* Suggestions tab */
             <div className="space-y-6">
-              <h2 className="font-display text-2.5xl uppercase leading-none text-ink-black">
+              <h2 className="font-display text-2.5xl uppercase leading-none text-[#201D1A]">
                 Suggested Swap Matches ({suggestions.length})
               </h2>
 
               {suggestions.length === 0 ? (
-                <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-ink-black/30">
-                  <span className="font-hand text-xl text-ink-black/60 italic">
+                <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-[#201D1A]/30">
+                  <span className="font-hand text-xl text-[#201D1A]/60 italic">
                     No matching trades found. Send swap proposals first!
                   </span>
                 </div>
@@ -503,17 +503,17 @@ export default function SkillSwapBoardPage() {
                     return (
                       <div
                         key={match.id}
-                        className="p-5 pt-8 pb-3 bg-paper-stock border-2 border-ink-black text-ink-black animate-press-print-in shadow-[2px_2px_0px_rgba(32,29,26,0.15)] flex flex-col justify-between"
+                        className="p-5 pt-8 pb-3 bg-paper-stock border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[2px_2px_0px_rgba(32,29,26,0.15)] flex flex-col justify-between"
                       >
                         <div>
                           <div className="flex justify-between items-center mb-3">
-                            <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-violet border border-ink-black">
+                            <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-violet border border-[#201D1A]">
                               Proposed Trade
                             </span>
                             <span className={`font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 border ${
                               matchStatus === "active" ? "text-success-ink border-success-ink bg-success-ink/5" :
                               matchStatus === "pending" ? "text-riso-yellow border-riso-yellow bg-riso-yellow/5" :
-                              matchStatus === "completed" ? "text-ink-black/40 border-ink-black/40 bg-ink-black/5" :
+                              matchStatus === "completed" ? "text-[#201D1A]/40 border-[#201D1A]/40 bg-ink-black/5" :
                               "text-red-500 border-red-500 bg-red-500/5"
                             }`}>
                               {matchStatus}
@@ -524,12 +524,12 @@ export default function SkillSwapBoardPage() {
                             {isProposer ? `You Proposed a Swap to ${otherProfile?.display_name || "Someone"}` : `${otherProfile?.display_name || "Someone"} Proposed a Swap`}
                           </h3>
 
-                          <div className="text-xs space-y-1.5 font-mono text-ink-black/80 bg-paper-stock border border-dashed border-ink-black/35 p-3">
+                          <div className="text-xs space-y-1.5 font-mono text-[#201D1A]/80 bg-paper-stock border border-dashed border-[#201D1A]/35 p-3">
                             <div>
-                              <strong className="text-ink-black uppercase text-[10px]">Teaching:</strong> {match.proposer_skill?.name}
+                              <strong className="text-[#201D1A] uppercase text-[10px]">Teaching:</strong> {match.proposer_skill?.name}
                             </div>
                             <div>
-                              <strong className="text-ink-black uppercase text-[10px]">Studying:</strong> {match.receiver_skill?.name}
+                              <strong className="text-[#201D1A] uppercase text-[10px]">Studying:</strong> {match.receiver_skill?.name}
                             </div>
                           </div>
                         </div>
@@ -537,7 +537,7 @@ export default function SkillSwapBoardPage() {
                         {(matchStatus === "active" || matchStatus === "pending" || matchStatus === "completed") && (
                           <Link
                             href={`/skill-swap/match/${match.id}`}
-                            className="w-full flex items-center justify-center min-h-[38px] border-2 border-ink-black font-mono font-bold text-xs uppercase bg-paper-stock hover:bg-ink-black/5 active:translate-y-0.5 transition-all mt-4"
+                            className="w-full flex items-center justify-center min-h-[38px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase bg-paper-stock hover:bg-ink-black/5 active:translate-y-0.5 transition-all mt-4"
                           >
                             Enter Match Chat Portal →
                           </Link>
@@ -553,11 +553,11 @@ export default function SkillSwapBoardPage() {
             <div className="space-y-6">
               
               {/* Tab Selector */}
-              <div className="flex space-x-3 mb-6 bg-paper-stock p-1 border-2 border-ink-black max-w-xs shadow-[2px_2px_0px_rgba(30,27,24,0.18)]">
+              <div className="flex space-x-3 mb-6 bg-paper-stock p-1 border-2 border-[#201D1A] max-w-xs shadow-[2px_2px_0px_rgba(30,27,24,0.18)]">
                 <button
                   onClick={() => setActiveTab("offering")}
                   className={`flex-1 py-2 text-xs font-bold uppercase tracking-wider border border-dashed transition-all cursor-pointer font-mono ${
-                    activeTab === "offering" ? "border-solid border-2 border-ink-black bg-riso-marine text-paper-stock" : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                    activeTab === "offering" ? "border-solid border-2 border-[#201D1A] bg-riso-marine text-paper-stock" : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                   }`}
                 >
                   Offerings
@@ -565,7 +565,7 @@ export default function SkillSwapBoardPage() {
                 <button
                   onClick={() => setActiveTab("wanting")}
                   className={`flex-1 py-2 text-xs font-bold uppercase tracking-wider border border-dashed transition-all cursor-pointer font-mono ${
-                    activeTab === "wanting" ? "border-solid border-2 border-ink-black bg-riso-marine text-paper-stock" : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                    activeTab === "wanting" ? "border-solid border-2 border-[#201D1A] bg-riso-marine text-paper-stock" : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                   }`}
                 >
                   Wantings
@@ -573,8 +573,8 @@ export default function SkillSwapBoardPage() {
               </div>
 
               {filteredListings.length === 0 ? (
-                <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-ink-black/30">
-                  <span className="font-hand text-xl text-ink-black/60 italic block">
+                <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-[#201D1A]/30">
+                  <span className="font-hand text-xl text-[#201D1A]/60 italic block">
                     No active listings match your filters.
                   </span>
                 </div>

@@ -30,7 +30,7 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
       
       {/* Perforated Questionnaire Sheet */}
       <div 
-        className="relative w-full max-w-md p-8 bg-paper-stock border-2 border-ink-black text-ink-black shadow-[4px_4px_0px_rgba(32,29,26,0.25)] animate-press-print-in"
+        className="relative w-full max-w-md p-8 bg-paper-stock border-2 border-[#201D1A] text-[#201D1A] shadow-[4px_4px_0px_rgba(32,29,26,0.25)] animate-press-print-in"
         style={{ "--section-ink": "var(--riso-orange)" } as React.CSSProperties}
       >
         
@@ -57,7 +57,7 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
             <div className="font-display text-2.5xl uppercase border-4 border-success-ink text-success-ink px-6 py-2.5 inline-block transform -rotate-6 animate-stamp-thud">
               SUBMITTED
             </div>
-            <p className="font-mono text-xs text-ink-black/60">
+            <p className="font-mono text-xs text-[#201D1A]/60">
               Your response is printed and awaiting finder review.
             </p>
           </div>
@@ -65,11 +65,11 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
           <form action={formAction} className="space-y-6">
             <input type="hidden" name="itemId" value={itemId} />
 
-            <div className="text-center border-b border-dashed border-ink-black/30 pb-3">
+            <div className="text-center border-b border-dashed border-[#201D1A]/30 pb-3">
               <h2 className="font-display text-xl uppercase leading-none">
                 File Notice Claim
               </h2>
-              <p className="font-mono text-[10px] text-ink-black/60 mt-1.5">
+              <p className="font-mono text-[10px] text-[#201D1A]/60 mt-1.5">
                 Provide verification details to prove ownership
               </p>
             </div>
@@ -82,17 +82,17 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
 
             {/* Question description */}
             <div className="space-y-2 py-1 relative">
-              <span className="font-mono text-[9px] font-bold text-ink-black/50 uppercase tracking-wider block">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/50 uppercase tracking-wider block">
                 Verification Question
               </span>
-              <p className="font-sans text-xs font-bold leading-normal text-ink-black">
+              <p className="font-sans text-xs font-bold leading-normal text-[#201D1A]">
                 &quot;{question}&quot;
               </p>
             </div>
 
             {/* Answer textarea */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/50 uppercase tracking-wider mb-1">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/50 uppercase tracking-wider mb-1">
                 Your Answer
               </span>
               <textarea
@@ -100,7 +100,7 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
                 required
                 rows={3}
                 placeholder="Describe details only the true owner would know..."
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange resize-none"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange resize-none"
               />
             </div>
 
@@ -108,7 +108,7 @@ export default function ClaimModal({ itemId, question, onClose }: ClaimModalProp
             <button
               type="submit"
               disabled={isPending}
-              className="w-full flex items-center justify-center min-h-[46px] border-2 border-ink-black font-mono font-bold text-xs uppercase bg-paper-stock text-ink-black hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50 mt-4"
+              className="w-full flex items-center justify-center min-h-[46px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase bg-paper-stock text-[#201D1A] hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50 mt-4"
             >
               {isPending ? "PRINTING..." : "SUBMIT CLAIM ANSWER"}
             </button>

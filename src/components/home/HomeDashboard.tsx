@@ -119,7 +119,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
       <header className="w-full bg-[#F2EEE4] bg-riso-run border-2 border-[#201D1A] rounded-none p-5 md:p-6 shadow-[3px_3px_0px_#201D1A] flex flex-col md:grid md:grid-cols-3 gap-6 items-center relative z-20 -rotate-0.5">
         
         {/* Left Col: Profile Slip */}
-        <div className="flex items-center w-full justify-start border-b border-dashed border-ink-black/30 md:border-0 pb-4 md:pb-0">
+        <div className="flex items-center w-full justify-start border-b border-dashed border-[#201D1A]/30 md:border-0 pb-4 md:pb-0">
           
           {/* Dashed-border Circle Avatar */}
           <div className="relative w-14 h-14 md:w-16 md:h-16 border-2 border-dashed border-[#8C2A2A] rounded-full bg-[#F2EEE4] overflow-hidden shrink-0 mr-4 shadow-[1.5px_1.5px_0px_#8C2A2A] flex items-center justify-center">
@@ -139,7 +139,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
           
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="font-display text-sm md:text-base font-black uppercase tracking-wider text-ink-black whitespace-nowrap">
+              <h2 className="font-serif text-sm md:text-base font-black uppercase tracking-wider text-[#201D1A] whitespace-nowrap">
                 {profile?.display_name || "Campus Member"}
               </h2>
               {/* Role Tag: small dashed-border rectangle tag, maroon text and border */}
@@ -205,21 +205,21 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
         </div>
 
         {/* Right Col: Notifications & Logout Controls */}
-        <div className="flex items-center justify-end w-full gap-4 md:border-0 pt-4 md:pt-0 border-t border-dashed border-ink-black/30">
+        <div className="flex items-center justify-end w-full gap-4 md:border-0 pt-4 md:pt-0 border-t border-dashed border-[#201D1A]/30">
           
           {/* Notifications Dropdown Wrapper */}
           <div className="relative" ref={dropdownRef}>
             {/* Notification bell icon: dashed border square, transparent background, ink-black icon */}
             <button
               onClick={() => setNotifOpen(!notifOpen)}
-              className="relative p-2.5 border border-dashed border-ink-black bg-transparent hover:bg-ink-black/5 transition-all cursor-pointer flex items-center justify-center text-ink-black rounded-none shadow-none"
+              className="relative p-2.5 border border-dashed border-[#201D1A] bg-transparent hover:bg-ink-black/5 transition-all cursor-pointer flex items-center justify-center text-[#201D1A] rounded-none shadow-none"
               aria-label="Toggle notifications"
             >
               <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
               {notifications.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-riso-orange text-paper-stock font-mono text-[9px] font-bold flex items-center justify-center border border-ink-black">
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-riso-orange text-paper-stock font-mono text-[9px] font-bold flex items-center justify-center border border-[#201D1A]">
                   {notifications.length}
                 </span>
               )}
@@ -227,9 +227,9 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
 
             {/* Notifications Dropdown Panel */}
             {notifOpen && (
-              <div className="absolute right-0 mt-3 w-80 max-w-sm bg-paper-stock border-2 border-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.25)] p-4 origin-top-right z-50">
-                <div className="flex items-center justify-between border-b border-dashed border-ink-black pb-2.5 mb-2.5">
-                  <h3 className="font-display uppercase text-xs text-ink-black">
+              <div className="absolute right-0 mt-3 w-80 max-w-sm bg-paper-stock border-2 border-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.25)] p-4 origin-top-right z-50">
+                <div className="flex items-center justify-between border-b border-dashed border-[#201D1A] pb-2.5 mb-2.5">
+                  <h3 className="font-display uppercase text-xs text-[#201D1A]">
                     Recent runs
                   </h3>
                   {notifications.length > 0 && (
@@ -243,22 +243,22 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
                 </div>
                 <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
                   {notifications.length === 0 ? (
-                    <div className="text-center py-6 text-xs text-ink-black/60 italic font-mono">
+                    <div className="text-center py-6 text-xs text-[#201D1A]/60 italic font-mono">
                       Press idle. No updates.
                     </div>
                   ) : (
                     notifications.map((notif) => (
                       <div
                         key={notif.id}
-                        className="p-2.5 border border-dashed border-ink-black/40 text-xs flex flex-col gap-1 hover:bg-ink-black/5 transition-colors bg-paper-stock"
+                        className="p-2.5 border border-dashed border-[#201D1A]/40 text-xs flex flex-col gap-1 hover:bg-ink-black/5 transition-colors bg-paper-stock"
                       >
                         <div className="flex justify-between items-start">
-                          <span className="font-bold text-ink-black truncate max-w-[170px]">{notif.title}</span>
-                          <span className="text-[9px] text-ink-black/50 font-mono">
+                          <span className="font-bold text-[#201D1A] truncate max-w-[170px]">{notif.title}</span>
+                          <span className="text-[9px] text-[#201D1A]/50 font-mono">
                             {new Date(notif.created_at).toLocaleDateString([], { month: "short", day: "numeric" })}
                           </span>
                         </div>
-                        <p className="text-ink-black/75 leading-snug">{notif.message}</p>
+                        <p className="text-[#201D1A]/75 leading-snug">{notif.message}</p>
                         {notif.link && (
                           <Link
                             href={notif.link}
@@ -303,7 +303,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
           
           {/* LOST & FOUND RISO FLYER */}
           <div 
-            className="relative w-full p-6 pt-8 pb-4 bg-riso-orange-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
+            className="relative w-full p-6 pt-8 pb-4 bg-riso-orange-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
             style={{ "--section-ink": "var(--riso-orange)" } as React.CSSProperties}
           >
             {/* Staple graphic */}
@@ -323,11 +323,11 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center justify-between mb-4 border-b border-dashed border-ink-black/40 pb-3">
+              <div className="flex items-center justify-between mb-4 border-b border-dashed border-[#201D1A]/40 pb-3">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-riso-orange border border-riso-orange/40 px-2 py-0.5">
                   Lost & Found
                 </span>
-                <span className="font-mono text-[9px] text-ink-black/60">Press Run #01</span>
+                <span className="font-mono text-[9px] text-[#201D1A]/60">Press Run #01</span>
               </div>
               
               <h2 className="font-display text-[20px] sm:text-2xl uppercase leading-none mb-3 text-[#201D1A]">
@@ -353,7 +353,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
 
           {/* SKILL SWAP RISO FLYER */}
           <div 
-            className="relative w-full p-6 pt-8 pb-4 bg-riso-marine-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
+            className="relative w-full p-6 pt-8 pb-4 bg-riso-marine-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
             style={{ "--section-ink": "var(--riso-marine)" } as React.CSSProperties}
           >
             {/* Staple graphic */}
@@ -373,11 +373,11 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center justify-between mb-4 border-b border-dashed border-ink-black/40 pb-3">
+              <div className="flex items-center justify-between mb-4 border-b border-dashed border-[#201D1A]/40 pb-3">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-riso-marine border border-riso-marine/40 px-2 py-0.5">
                   Skill Swap
                 </span>
-                <span className="font-mono text-[9px] text-ink-black/60">Press Run #02</span>
+                <span className="font-mono text-[9px] text-[#201D1A]/60">Press Run #02</span>
               </div>
               
               <h2 className="font-display text-[20px] sm:text-2xl uppercase leading-none mb-3 text-[#201D1A]">
@@ -403,7 +403,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
 
           {/* COMMUNITY RISO ZINE */}
           <div 
-            className="relative w-full p-6 pt-8 pb-4 bg-riso-violet-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
+            className="relative w-full p-6 pt-8 pb-4 bg-riso-violet-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.2)] hover:shadow-[5px_5px_0px_rgba(30,27,24,0.3)] hover:scale-[1.01] transition-all flex flex-col justify-between min-h-[350px] cursor-pointer rotate-0"
             style={{ "--section-ink": "var(--riso-violet)" } as React.CSSProperties}
           >
             {/* Staple graphic */}
@@ -423,11 +423,11 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center justify-between mb-4 border-b border-dashed border-ink-black/40 pb-3">
+              <div className="flex items-center justify-between mb-4 border-b border-dashed border-[#201D1A]/40 pb-3">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-riso-violet border border-riso-violet/40 px-2 py-0.5">
                   Community
                 </span>
-                <span className="font-mono text-[9px] text-ink-black/60">Press Run #03</span>
+                <span className="font-mono text-[9px] text-[#201D1A]/60">Press Run #03</span>
               </div>
               
               <h2 className="font-display text-[20px] sm:text-2xl uppercase leading-none mb-3 text-[#201D1A]">

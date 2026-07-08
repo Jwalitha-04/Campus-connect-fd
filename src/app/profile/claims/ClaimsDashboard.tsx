@@ -129,9 +129,9 @@ export default function ClaimsDashboard({
       <div className="flex gap-4 mb-6 border-b border-dashed border-chalk-ink/20 pb-4 max-w-5xl mx-auto w-full">
         <button
           onClick={() => handleTabChange("received")}
-          className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-ink-black shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
+          className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#201D1A] shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
             activeTab === "received" 
-              ? "bg-amber-500 text-ink-black" 
+              ? "bg-amber-500 text-[#201D1A]" 
               : "bg-paper-cream/60 hover:bg-white/40 text-chalk-ink"
           }`}
         >
@@ -139,9 +139,9 @@ export default function ClaimsDashboard({
         </button>
         <button
           onClick={() => handleTabChange("made")}
-          className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-ink-black shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
+          className={`px-6 py-2 font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#201D1A] shadow-[2px_2px_0px_#201D1A] transition-all cursor-pointer active:translate-y-0.5 ${
             activeTab === "made" 
-              ? "bg-amber-500 text-ink-black" 
+              ? "bg-amber-500 text-[#201D1A]" 
               : "bg-paper-cream/60 hover:bg-white/40 text-chalk-ink"
           }`}
         >

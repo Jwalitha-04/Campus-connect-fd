@@ -86,7 +86,7 @@ function RisoCommunityPostCard({
 
   return (
     <div
-      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-violet-paper border-2 border-ink-black text-ink-black animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
+      className={`break-inside-avoid relative p-5 pt-8 pb-3 bg-riso-violet-paper border-2 border-[#201D1A] text-[#201D1A] animate-press-print-in shadow-[3px_3px_0px_rgba(30,27,24,0.18)] flex flex-col group hover:shadow-[5px_5px_0px_rgba(30,27,24,0.28)] transition-all hover:scale-[1.01] duration-300 ${rotation}`}
       style={{ "--section-ink": "var(--riso-violet)" } as React.CSSProperties}
     >
       {/* Staple */}
@@ -103,7 +103,7 @@ function RisoCommunityPostCard({
 
       {/* Category & Pin */}
       <div className="flex justify-between items-center mb-3">
-        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-violet border border-ink-black shadow-[1px_1px_0px_rgba(0,0,0,0.1)]">
+        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 text-paper-stock bg-riso-violet border border-[#201D1A] shadow-[1px_1px_0px_rgba(0,0,0,0.1)]">
           {post.category}
         </span>
         <div className="flex gap-1.5 items-center">
@@ -122,7 +122,7 @@ function RisoCommunityPostCard({
 
       {/* Title */}
       <Link href={`/community/post/${post.id}`} className="relative block">
-        <h3 className="font-display text-lg uppercase leading-tight mb-2 text-ink-black hover:opacity-85 tracking-tight relative z-10">
+        <h3 className="font-display text-lg uppercase leading-tight mb-2 text-[#201D1A] hover:opacity-85 tracking-tight relative z-10">
           {post.title}
           <span 
             className="absolute inset-0 select-none pointer-events-none font-display text-lg uppercase leading-tight text-riso-violet"
@@ -139,21 +139,21 @@ function RisoCommunityPostCard({
       </Link>
 
       {/* Content */}
-      <p className="font-sans text-xs text-ink-black/75 leading-relaxed line-clamp-4 mb-4 whitespace-pre-line">
+      <p className="font-sans text-xs text-[#201D1A]/75 leading-relaxed line-clamp-4 mb-4 whitespace-pre-line">
         {post.content}
       </p>
 
       {isResource && (
-        <div className="mb-4 text-[9px] font-mono text-ink-black/60 bg-paper-stock border border-dashed border-ink-black/20 p-2 text-center">
+        <div className="mb-4 text-[9px] font-mono text-[#201D1A]/60 bg-paper-stock border border-dashed border-[#201D1A]/20 p-2 text-center">
           📎 Attached Study Resource File
         </div>
       )}
 
       {/* Meta details */}
-      <div className="mt-auto border-t border-dashed border-ink-black/30 pt-3 flex justify-between items-center text-[10px] mb-4">
+      <div className="mt-auto border-t border-dashed border-[#201D1A]/30 pt-3 flex justify-between items-center text-[10px] mb-4">
         <div className="flex flex-col">
           <span className="font-bold">{post.profiles?.display_name || "Campus Member"} ({post.profiles?.role || "student"})</span>
-          <span className="text-ink-black/50 font-mono text-[9px]">
+          <span className="text-[#201D1A]/50 font-mono text-[9px]">
             {new Date(post.created_at).toLocaleDateString(undefined, {
               month: "short",
               day: "numeric",
@@ -164,14 +164,14 @@ function RisoCommunityPostCard({
 
       {/* Reactions block */}
       {currentUser && (
-        <div className="flex justify-between gap-1.5 border-t border-dashed border-ink-black/25 mt-1 pt-3 mb-4">
+        <div className="flex justify-between gap-1.5 border-t border-dashed border-[#201D1A]/25 mt-1 pt-3 mb-4">
           <button
             onClick={() => onReactionClick(post.id, "heart")}
             disabled={isPending}
             className={`flex-1 py-1 border text-[9px] font-mono font-bold transition-all cursor-pointer flex items-center justify-center gap-1 ${
               heartActive
                 ? "bg-riso-orange/15 border-riso-orange text-riso-orange shadow-[1px_1px_0px_rgba(0,0,0,0.1)]"
-                : "border-dashed border-ink-black/35 hover:bg-ink-black/5"
+                : "border-dashed border-[#201D1A]/35 hover:bg-ink-black/5"
             }`}
           >
             <span>❤️</span>
@@ -184,7 +184,7 @@ function RisoCommunityPostCard({
             className={`flex-1 py-1 border text-[9px] font-mono font-bold transition-all cursor-pointer flex items-center justify-center gap-1 ${
               pinActive
                 ? "bg-riso-violet/15 border-riso-violet text-riso-violet shadow-[1px_1px_0px_rgba(0,0,0,0.1)]"
-                : "border-dashed border-ink-black/35 hover:bg-ink-black/5"
+                : "border-dashed border-[#201D1A]/35 hover:bg-ink-black/5"
             }`}
           >
             <span>📌</span>
@@ -197,7 +197,7 @@ function RisoCommunityPostCard({
             className={`flex-1 py-1 border text-[9px] font-mono font-bold transition-all cursor-pointer flex items-center justify-center gap-1 ${
               checkActive
                 ? "bg-success-ink/15 border-success-ink text-success-ink shadow-[1px_1px_0px_rgba(0,0,0,0.1)]"
-                : "border-dashed border-ink-black/35 hover:bg-ink-black/5"
+                : "border-dashed border-[#201D1A]/35 hover:bg-ink-black/5"
             }`}
           >
             <span>✔</span>
@@ -216,16 +216,16 @@ function RisoCommunityPostCard({
               key={tab}
               disabled={isTorn}
               onClick={() => handleTear(tab, targetHref)}
-              className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-ink-black/30 bg-paper-stock text-ink-black py-2 px-1 transition-all ${
+              className={`flex-1 min-h-[44px] text-center font-mono text-[9px] font-bold border border-dashed border-[#201D1A]/30 bg-paper-stock text-[#201D1A] py-2 px-1 transition-all ${
                 isTorn 
                   ? "animate-tab-tear pointer-events-none opacity-0" 
-                  : "hover:bg-ink-black/5 cursor-pointer hover:border-ink-black"
+                  : "hover:bg-ink-black/5 cursor-pointer hover:border-[#201D1A]"
               }`}
             >
               {isTorn ? "TORN" : (
                 <div className="flex flex-col items-center">
                   <span>{tab}</span>
-                  <span className="text-[7.5px] font-normal text-ink-black/60">Replies ({post.comments?.length || 0})</span>
+                  <span className="text-[7.5px] font-normal text-[#201D1A]/60">Replies ({post.comments?.length || 0})</span>
                 </div>
               )}
             </button>
@@ -399,12 +399,12 @@ export default function CommunityBoardPage() {
       {/* Riso Zine Printer Running Press Overlay Modal */}
       {zineModalOpen && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50 animate-fade-in backdrop-blur-xs">
-          <div className="relative w-full max-w-4xl p-6 md:p-8 bg-paper-stock border-2 border-ink-black text-ink-black shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-4xl p-6 md:p-8 bg-paper-stock border-2 border-[#201D1A] text-[#201D1A] shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col max-h-[90vh] overflow-y-auto">
             
             {/* Close */}
             <button
               onClick={() => setZineModalOpen(false)}
-              className="absolute top-4 right-4 font-mono text-xs font-bold border border-ink-black px-2 py-1 bg-paper-stock hover:bg-ink-black/5 active:translate-y-0.5 cursor-pointer shadow-[1px_1px_0px_rgba(0,0,0,0.15)]"
+              className="absolute top-4 right-4 font-mono text-xs font-bold border border-[#201D1A] px-2 py-1 bg-paper-stock hover:bg-ink-black/5 active:translate-y-0.5 cursor-pointer shadow-[1px_1px_0px_rgba(0,0,0,0.15)]"
             >
               CLOSE PRESS
             </button>
@@ -422,7 +422,7 @@ export default function CommunityBoardPage() {
                     Please do not touch the cylinders.
                   </p>
                 </div>
-                <div className="w-full max-w-md bg-paper-stock border-2 border-ink-black h-6 p-0.5 shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">
+                <div className="w-full max-w-md bg-paper-stock border-2 border-[#201D1A] h-6 p-0.5 shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">
                   <div 
                     className="bg-riso-violet h-full transition-all duration-100" 
                     style={{ width: `${zineProgress}%` }}
@@ -436,33 +436,33 @@ export default function CommunityBoardPage() {
                   <h3 className="font-display text-3xl uppercase tracking-tight text-riso-violet">
                     🖨️ WEEKLY ZINE RUN COMPLETE
                   </h3>
-                  <p className="font-hand text-lg text-ink-black/70">
+                  <p className="font-hand text-lg text-[#201D1A]/70">
                     Your community news publication is fresh off the press bed!
                   </p>
                 </div>
 
                 {/* Zine Layout Booklet */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-2 border-ink-black p-6 bg-[#FAF7F2] shadow-[3px_3px_0px_rgba(0,0,0,0.18)] min-h-[400px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-2 border-[#201D1A] p-6 bg-[#FAF7F2] shadow-[3px_3px_0px_rgba(0,0,0,0.18)] min-h-[400px]">
                   
                   {/* Left Booklet Page: Cover */}
-                  <div className="border-r border-dashed border-ink-black/30 pr-0 md:pr-6 flex flex-col justify-between">
+                  <div className="border-r border-dashed border-[#201D1A]/30 pr-0 md:pr-6 flex flex-col justify-between">
                     <div>
-                      <div className="border-b border-ink-black pb-3 mb-4">
+                      <div className="border-b border-[#201D1A] pb-3 mb-4">
                         <span className="font-mono text-[9px] font-bold text-riso-orange tracking-widest block uppercase">
                           Risograph Edition • Vol. 1
                         </span>
-                        <h4 className="font-display text-3.5xl uppercase leading-none tracking-tight text-ink-black mt-1">
+                        <h4 className="font-display text-3.5xl uppercase leading-none tracking-tight text-[#201D1A] mt-1">
                           CAMPUS<br/>CHRONICLE
                         </h4>
                       </div>
                       
                       <div className="space-y-4">
-                        <p className="font-sans text-xs italic leading-relaxed text-ink-black/85">
+                        <p className="font-sans text-xs italic leading-relaxed text-[#201D1A]/85">
                           "This zine aggregates the latest thoughts, announcement bulletins, Q&As, and study attachments published by our student community."
                         </p>
                         
-                        <div className="p-4 bg-riso-yellow-paper border border-dashed border-ink-black/40 text-xs font-mono space-y-1.5 shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.1)]">
-                          <strong className="block text-[10px] text-ink-black/60 uppercase tracking-wider">Board Statistics</strong>
+                        <div className="p-4 bg-riso-yellow-paper border border-dashed border-[#201D1A]/40 text-xs font-mono space-y-1.5 shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.1)]">
+                          <strong className="block text-[10px] text-[#201D1A]/60 uppercase tracking-wider">Board Statistics</strong>
                           <div>📰 Total Bulletins: {posts.length}</div>
                           <div>💬 Attached Resources: {posts.filter(p => p.category === 'resource').length}</div>
                           <div>❓ Pending Q&As: {posts.filter(p => p.category === 'qa').length}</div>
@@ -470,7 +470,7 @@ export default function CommunityBoardPage() {
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-ink-black/20 flex justify-between items-center">
+                    <div className="pt-6 border-t border-[#201D1A]/20 flex justify-between items-center">
                       <div className="stamp-circle text-riso-violet border-riso-violet w-14 h-14 select-none font-bold text-[7px] leading-tight">
                         WEEKLY<br/>RUN
                       </div>
@@ -481,7 +481,7 @@ export default function CommunityBoardPage() {
                   {/* Right Booklet Page: Hot Bulletins */}
                   <div className="flex flex-col justify-between pl-0 md:pl-2">
                     <div>
-                      <div className="border-b border-ink-black pb-3 mb-4">
+                      <div className="border-b border-[#201D1A] pb-3 mb-4">
                         <h5 className="font-display text-sm uppercase tracking-wider text-riso-violet">
                           FEATURED DISCUSSIONS
                         </h5>
@@ -493,10 +493,10 @@ export default function CommunityBoardPage() {
                             <span className="font-mono text-[9px] font-bold uppercase text-riso-orange mr-1.5">
                               #{idx + 1}
                             </span>
-                            <span className="font-display text-xs uppercase tracking-tight text-ink-black">
+                            <span className="font-display text-xs uppercase tracking-tight text-[#201D1A]">
                               {p.title}
                             </span>
-                            <p className="font-sans text-[10px] text-ink-black/70 line-clamp-2 mt-0.5">
+                            <p className="font-sans text-[10px] text-[#201D1A]/70 line-clamp-2 mt-0.5">
                               {p.content}
                             </p>
                           </div>
@@ -504,10 +504,10 @@ export default function CommunityBoardPage() {
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-ink-black/20 flex justify-between items-center">
+                    <div className="pt-6 border-t border-[#201D1A]/20 flex justify-between items-center">
                       <button
                         onClick={() => window.print()}
-                        className="px-4 py-2 border-2 border-ink-black bg-riso-violet text-paper-stock font-mono text-[10px] font-bold uppercase hover:bg-riso-violet/90 active:translate-y-0.5 cursor-pointer shadow-[2px_2px_0px_rgba(0,0,0,0.18)]"
+                        className="px-4 py-2 border-2 border-[#201D1A] bg-riso-violet text-paper-stock font-mono text-[10px] font-bold uppercase hover:bg-riso-violet/90 active:translate-y-0.5 cursor-pointer shadow-[2px_2px_0px_rgba(0,0,0,0.18)]"
                       >
                         🖨️ SEND TO PRINTER
                       </button>
@@ -524,10 +524,10 @@ export default function CommunityBoardPage() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-ink-black pb-6 -rotate-0.5">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b-2 border-[#201D1A] pb-6 -rotate-0.5">
         <div className="text-center md:text-left pl-16">
           <Link href="/">
-            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-ink-black hover:opacity-85 transition-opacity" data-text="Community Press Run" style={{ "--section-ink": "var(--riso-violet)" } as React.CSSProperties}>
+            <h1 className="riso-ghost-color font-display text-4.5xl uppercase leading-none tracking-tight text-[#201D1A] hover:opacity-85 transition-opacity" data-text="Community Press Run" style={{ "--section-ink": "var(--riso-violet)" } as React.CSSProperties}>
               Community Press Run
             </h1>
           </Link>
@@ -538,7 +538,7 @@ export default function CommunityBoardPage() {
         <div className="mt-4 md:mt-0 flex gap-3">
           <button
             onClick={handleStartZinePress}
-            className="font-mono text-xs font-bold text-white bg-riso-violet hover:bg-riso-violet/90 px-3.5 py-1.5 shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)] border-2 border-ink-black transition-all cursor-pointer flex items-center gap-1.5"
+            className="font-mono text-xs font-bold text-white bg-riso-violet hover:bg-riso-violet/90 px-3.5 py-1.5 shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)] border-2 border-[#201D1A] transition-all cursor-pointer flex items-center gap-1.5"
           >
             🖨️ RUN WEEKLY EDITION
           </button>
@@ -557,8 +557,8 @@ export default function CommunityBoardPage() {
         <aside className="w-full lg:w-72 space-y-6">
           
           {/* Post Form */}
-          <div className="p-6 bg-riso-orange-paper border-2 border-ink-black text-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
-            <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-3 border-b border-dashed border-ink-black/30 pb-2">
+          <div className="p-6 bg-riso-orange-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.2)]">
+            <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-3 border-b border-dashed border-[#201D1A]/30 pb-2">
               Publish Board Bulletin
             </span>
             <form onSubmit={handlePostSubmit} className="space-y-4">
@@ -581,7 +581,7 @@ export default function CommunityBoardPage() {
                   placeholder="Bulletin Title"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
                 />
               </div>
 
@@ -593,7 +593,7 @@ export default function CommunityBoardPage() {
                   rows={3}
                   value={newContent}
                   onChange={(e) => setNewContent(e.target.value)}
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet resize-none"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet resize-none"
                 />
               </div>
 
@@ -603,7 +603,7 @@ export default function CommunityBoardPage() {
                   required
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 text-xs font-mono focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
                 >
                   <option value="discussion" className="bg-paper-stock">💬 Discussion</option>
                   <option value="announcement" className="bg-paper-stock">📢 Announcement</option>
@@ -617,7 +617,7 @@ export default function CommunityBoardPage() {
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full flex items-center justify-center min-h-[40px] border-2 border-ink-black font-mono font-bold text-xs uppercase bg-paper-stock text-ink-black hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50"
+                className="w-full flex items-center justify-center min-h-[40px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase bg-paper-stock text-[#201D1A] hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50"
               >
                 {isPending ? "PRINTING..." : "PRINT NOTICE"}
               </button>
@@ -626,35 +626,35 @@ export default function CommunityBoardPage() {
 
           {/* Live Preview Card */}
           {(newTitle || newContent) && (
-            <div className="p-5 bg-riso-violet-paper border-2 border-ink-black text-ink-black shadow-[2px_2px_0px_rgba(30,27,24,0.15)] flex flex-col relative rotate-0.5 animate-pulse">
-              <span className="font-mono text-[7px] font-bold text-ink-black/40 uppercase tracking-widest block mb-2">
+            <div className="p-5 bg-riso-violet-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[2px_2px_0px_rgba(30,27,24,0.15)] flex flex-col relative rotate-0.5 animate-pulse">
+              <span className="font-mono text-[7px] font-bold text-[#201D1A]/40 uppercase tracking-widest block mb-2">
                 🖨️ Live Press Preview
               </span>
               <div className="flex justify-between items-center mb-2">
-                <span className="font-mono text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-riso-violet text-paper-stock border border-ink-black">
+                <span className="font-mono text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-riso-violet text-paper-stock border border-[#201D1A]">
                   {newCategory}
                 </span>
                 <span className="font-mono text-[7px] font-bold text-riso-orange uppercase tracking-wider">
                   💧 fresh ink
                 </span>
               </div>
-              <h4 className="font-display text-sm uppercase leading-tight mb-1 text-ink-black tracking-tight relative">
+              <h4 className="font-display text-sm uppercase leading-tight mb-1 text-[#201D1A] tracking-tight relative">
                 {newTitle || "Untitled bulletin"}
               </h4>
-              <p className="font-sans text-[10px] text-ink-black/70 leading-normal line-clamp-3 mb-2 whitespace-pre-line">
+              <p className="font-sans text-[10px] text-[#201D1A]/70 leading-normal line-clamp-3 mb-2 whitespace-pre-line">
                 {newContent || "Start typing details to preview..."}
               </p>
-              <div className="border-t border-dashed border-ink-black/20 pt-2 flex justify-between items-center text-[8px]">
+              <div className="border-t border-dashed border-[#201D1A]/20 pt-2 flex justify-between items-center text-[8px]">
                 <span className="font-bold">You (student)</span>
-                <span className="text-ink-black/45 font-mono">Today</span>
+                <span className="text-[#201D1A]/45 font-mono">Today</span>
               </div>
             </div>
           )}
 
           {/* Filters & Search */}
-          <div className="p-6 bg-riso-yellow-paper border-2 border-ink-black text-ink-black shadow-[3px_3px_0px_rgba(30,27,24,0.2)] space-y-6">
+          <div className="p-6 bg-riso-yellow-paper border-2 border-[#201D1A] text-[#201D1A] shadow-[3px_3px_0px_rgba(30,27,24,0.2)] space-y-6">
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-3 border-b border-dashed border-ink-black/30 pb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-3 border-b border-dashed border-[#201D1A]/30 pb-2">
                 Search Notice
               </span>
               <input
@@ -662,17 +662,17 @@ export default function CommunityBoardPage() {
                 placeholder="Search..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-1.5 font-mono text-xs focus:border-solid focus:border-riso-violet focus:ring-1 focus:ring-riso-violet"
               />
             </div>
 
             <div>
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-3 border-b border-dashed border-ink-black/30 pb-2">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-3 border-b border-dashed border-[#201D1A]/30 pb-2">
                 Interactive Press Bed Adjustments
               </span>
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <div className="flex justify-between font-mono text-[9px] font-bold text-ink-black/60">
+                  <div className="flex justify-between font-mono text-[9px] font-bold text-[#201D1A]/60">
                     <span>PLATE ALIGNMENT</span>
                     <span>{misalignment}px</span>
                   </div>
@@ -687,7 +687,7 @@ export default function CommunityBoardPage() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <div className="flex justify-between font-mono text-[9px] font-bold text-ink-black/60">
+                  <div className="flex justify-between font-mono text-[9px] font-bold text-[#201D1A]/60">
                     <span>INK DENSITY</span>
                     <span>{Math.round(inkDensity * 100)}%</span>
                   </div>
@@ -705,7 +705,7 @@ export default function CommunityBoardPage() {
             </div>
             
             <div className="space-y-1.5 flex flex-col">
-              <span className="font-mono text-[10px] font-bold text-ink-black/60 uppercase tracking-wider block mb-1.5">
+              <span className="font-mono text-[10px] font-bold text-[#201D1A]/60 uppercase tracking-wider block mb-1.5">
                 Categories
               </span>
               {CATEGORIES.map((cat) => (
@@ -713,7 +713,7 @@ export default function CommunityBoardPage() {
                   key={cat.value}
                   onClick={() => setActiveCategory(cat.value)}
                   className={`text-left text-xs py-1.5 px-3 border border-dashed transition-all cursor-pointer font-mono ${
-                    activeCategory === cat.value ? "border-solid border-2 border-ink-black bg-riso-violet text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-ink-black/30 text-ink-black/70"
+                    activeCategory === cat.value ? "border-solid border-2 border-[#201D1A] bg-riso-violet text-paper-stock shadow-[1.5px_1.5px_0px_rgba(0,0,0,0.15)]" : "border-transparent hover:border-[#201D1A]/30 text-[#201D1A]/70"
                   }`}
                 >
                   {cat.label}
@@ -740,8 +740,8 @@ export default function CommunityBoardPage() {
               </span>
             </div>
           ) : filteredPosts.length === 0 ? (
-            <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-ink-black/30">
-              <span className="font-hand text-xl text-ink-black/60 italic block">
+            <div className="text-center py-20 bg-paper-stock border-2 border-dashed border-[#201D1A]/30">
+              <span className="font-hand text-xl text-[#201D1A]/60 italic block">
                 No active bulletin notices printed.
               </span>
             </div>

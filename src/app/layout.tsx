@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${permanentMarker.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper-stock text-ink-black font-sans">
+      <body className="min-h-full flex flex-col bg-paper-stock text-[#201D1A] font-sans">
         <NotificationListener />
         <AmbientOverlay>{children}</AmbientOverlay>
       </body>

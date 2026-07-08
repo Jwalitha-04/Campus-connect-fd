@@ -114,7 +114,7 @@ export default function ReportItemPage() {
       
       {/* Notice Board Header */}
       <div className="text-center mb-6">
-        <h1 className="font-display text-4xl uppercase leading-none text-ink-black">
+        <h1 className="font-display text-4xl uppercase leading-none text-[#201D1A]">
           Notice Press Run
         </h1>
         <p className="font-hand text-lg text-riso-orange mt-2">
@@ -124,7 +124,7 @@ export default function ReportItemPage() {
 
       {/* Form Container Pod */}
       <div 
-        className="relative w-full p-8 bg-paper-stock border-2 border-ink-black text-ink-black shadow-[4px_4px_0px_rgba(32,29,26,0.15)] animate-press-print-in"
+        className="relative w-full p-8 bg-paper-stock border-2 border-[#201D1A] text-[#201D1A] shadow-[4px_4px_0px_rgba(32,29,26,0.15)] animate-press-print-in"
       >
         
         {/* Staple */}
@@ -163,7 +163,7 @@ export default function ReportItemPage() {
 
           {/* Notice Type Selector */}
           <div className="flex flex-col py-1">
-            <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider mb-2">
+            <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider mb-2">
               Notice Category Type
             </span>
             <div className="flex space-x-4">
@@ -172,8 +172,8 @@ export default function ReportItemPage() {
                 onClick={() => setType("lost")}
                 className={`flex-1 py-3 px-4 border font-mono font-bold text-xs transition-all cursor-pointer ${
                   type === "lost"
-                    ? "bg-riso-orange text-paper-stock border-2 border-ink-black"
-                    : "bg-paper-stock border border-dashed border-ink-black/40 text-ink-black/60 hover:bg-ink-black/5"
+                    ? "bg-riso-orange text-paper-stock border-2 border-[#201D1A]"
+                    : "bg-paper-stock border border-dashed border-[#201D1A]/40 text-[#201D1A]/60 hover:bg-ink-black/5"
                 }`}
               >
                 🔴 Lost Flyer
@@ -183,8 +183,8 @@ export default function ReportItemPage() {
                 onClick={() => setType("found")}
                 className={`flex-1 py-3 px-4 border font-mono font-bold text-xs transition-all cursor-pointer ${
                   type === "found"
-                    ? "bg-success-ink text-paper-stock border-2 border-ink-black"
-                    : "bg-paper-stock border border-dashed border-ink-black/40 text-ink-black/60 hover:bg-ink-black/5"
+                    ? "bg-success-ink text-paper-stock border-2 border-[#201D1A]"
+                    : "bg-paper-stock border border-dashed border-[#201D1A]/40 text-[#201D1A]/60 hover:bg-ink-black/5"
                 }`}
               >
                 🟢 Found Flyer
@@ -194,10 +194,10 @@ export default function ReportItemPage() {
 
           {/* Image Uploader */}
           <div className="flex flex-col">
-            <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider mb-2">
+            <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider mb-2">
               Photos (Optional)
             </span>
-            <div className="border border-dashed border-ink-black/40 p-1">
+            <div className="border border-dashed border-[#201D1A]/40 p-1">
               <ImageUploader
                 itemId={itemId}
                 bucketName="lost-found-images"
@@ -226,16 +226,16 @@ export default function ReportItemPage() {
               {aiResult ? (
                 <div className="space-y-2">
                   <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                    <div className="p-2 border border-dashed border-ink-black bg-paper-stock">
-                      <div className="text-[8px] text-ink-black/50 uppercase font-bold font-mono">Item</div>
+                    <div className="p-2 border border-dashed border-[#201D1A] bg-paper-stock">
+                      <div className="text-[8px] text-[#201D1A]/50 uppercase font-bold font-mono">Item</div>
                       <div className="font-bold text-riso-violet mt-0.5 font-mono truncate">{aiResult.item}</div>
                     </div>
-                    <div className="p-2 border border-dashed border-ink-black bg-paper-stock">
-                      <div className="text-[8px] text-ink-black/50 uppercase font-bold font-mono">Color</div>
+                    <div className="p-2 border border-dashed border-[#201D1A] bg-paper-stock">
+                      <div className="text-[8px] text-[#201D1A]/50 uppercase font-bold font-mono">Color</div>
                       <div className="font-bold text-riso-violet mt-0.5 font-mono truncate">{aiResult.color}</div>
                     </div>
-                    <div className="p-2 border border-dashed border-ink-black bg-paper-stock">
-                      <div className="text-[8px] text-ink-black/50 uppercase font-bold font-mono">Brand</div>
+                    <div className="p-2 border border-dashed border-[#201D1A] bg-paper-stock">
+                      <div className="text-[8px] text-[#201D1A]/50 uppercase font-bold font-mono">Brand</div>
                       <div className="font-bold text-riso-violet mt-0.5 font-mono truncate">{aiResult.brand}</div>
                     </div>
                   </div>
@@ -244,7 +244,7 @@ export default function ReportItemPage() {
                   </p>
                 </div>
               ) : (
-                <p className="text-[9px] text-ink-black/50 font-mono italic text-center">
+                <p className="text-[9px] text-[#201D1A]/50 font-mono italic text-center">
                   Click to prefill title, category, brand, and color values automatically.
                 </p>
               )}
@@ -253,7 +253,7 @@ export default function ReportItemPage() {
 
           {/* Title */}
           <div className="flex flex-col">
-            <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+            <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
               Item Title
             </span>
             <input
@@ -263,13 +263,13 @@ export default function ReportItemPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Leather Wallet, iPhone Charger"
-              className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+              className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
             />
           </div>
 
           {/* Description */}
           <div className="flex flex-col">
-            <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+            <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
               Description & Distinctive Features
             </span>
             <textarea
@@ -279,7 +279,7 @@ export default function ReportItemPage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe characteristics only the true owner would know..."
-              className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange resize-none"
+              className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange resize-none"
             />
           </div>
 
@@ -287,7 +287,7 @@ export default function ReportItemPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Category */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Category
               </span>
               <select
@@ -295,7 +295,7 @@ export default function ReportItemPage() {
                 required
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               >
                 <option value="" disabled className="bg-paper-stock">Select Category</option>
                 {CATEGORIES.map((cat) => (
@@ -308,7 +308,7 @@ export default function ReportItemPage() {
 
             {/* Location */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Campus Location Zone
               </span>
               <select
@@ -316,7 +316,7 @@ export default function ReportItemPage() {
                 required
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               >
                 <option value="" disabled className="bg-paper-stock">Select Location</option>
                 {LOCATIONS.map((loc) => (
@@ -332,7 +332,7 @@ export default function ReportItemPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Color */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Color
               </span>
               <input
@@ -341,13 +341,13 @@ export default function ReportItemPage() {
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
                 placeholder="e.g. Matte Black"
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               />
             </div>
 
             {/* Brand */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Brand / Make
               </span>
               <input
@@ -356,7 +356,7 @@ export default function ReportItemPage() {
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
                 placeholder="e.g. Apple"
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               />
             </div>
           </div>
@@ -365,7 +365,7 @@ export default function ReportItemPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Date */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Date {type === "lost" ? "Lost" : "Found"}
               </span>
               <input
@@ -374,13 +374,13 @@ export default function ReportItemPage() {
                 required
                 value={dateLostFound}
                 onChange={(e) => setDateLostFound(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               />
             </div>
 
             {/* Time */}
             <div className="flex flex-col">
-              <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                 Time (Optional)
               </span>
               <input
@@ -388,14 +388,14 @@ export default function ReportItemPage() {
                 type="time"
                 value={timeLostFound}
                 onChange={(e) => setTimeLostFound(e.target.value)}
-                className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
               />
             </div>
           </div>
 
           {/* Contact Info */}
           <div className="flex flex-col">
-            <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+            <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
               Contact Information
             </span>
             <input
@@ -405,7 +405,7 @@ export default function ReportItemPage() {
               value={contactInfo}
               onChange={(e) => setContactInfo(e.target.value)}
               placeholder="e.g. Email or Roll Number"
-              className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+              className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
             />
           </div>
 
@@ -413,7 +413,7 @@ export default function ReportItemPage() {
           {type === "found" && (
             <>
               <div className="flex flex-col">
-                <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+                <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                   Verification Question
                 </span>
                 <input
@@ -423,13 +423,13 @@ export default function ReportItemPage() {
                   value={verificationQuestion}
                   onChange={(e) => setVerificationQuestion(e.target.value)}
                   placeholder="Ask a validation detail (e.g. 'What is the sticker on the back?')"
-                  className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                  className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
                 />
               </div>
 
               {/* Handover Preference Selection */}
               <div className="flex flex-col py-1">
-                <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider mb-2">
+                <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider mb-2">
                   Handover Preference
                 </span>
                 <div className="space-y-2">
@@ -471,14 +471,14 @@ export default function ReportItemPage() {
               {/* If Drop at safe location */}
               {handoverPreference === "drop_off" && (
                 <div className="flex flex-col">
-                  <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+                  <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                     Designated Drop-Off Partner Hub
                   </span>
                   <select
                     value={dropOffLocation}
                     onChange={(e) => setDropOffLocation(e.target.value)}
                     required
-                    className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                    className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
                   >
                     <option value="" disabled className="bg-paper-stock">Select Drop Point</option>
                     <option value="Library Front Desk" className="bg-paper-stock">Library Front Desk</option>
@@ -503,19 +503,19 @@ export default function ReportItemPage() {
                       onChange={(e) => setHandoverLimitTime(e.target.value)}
                       placeholder="e.g. 6pm today, Friday noon"
                       required
-                      className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-[#8C2A2A] focus:ring-1 focus:ring-[#8C2A2A]"
+                      className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-[#8C2A2A] focus:ring-1 focus:ring-[#8C2A2A]"
                     />
                   </div>
 
                   <div className="flex flex-col">
-                    <span className="font-mono text-[9px] font-bold text-ink-black/60 uppercase tracking-wider">
+                    <span className="font-mono text-[9px] font-bold text-[#201D1A]/60 uppercase tracking-wider">
                       Then Drop Off At
                     </span>
                     <select
                       value={handoverLimitLocation}
                       onChange={(e) => setHandoverLimitLocation(e.target.value)}
                       required
-                      className="w-full bg-paper-stock border border-dashed border-ink-black outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
+                      className="w-full bg-paper-stock border border-dashed border-[#201D1A] outline-none px-4 py-2 mt-1 font-mono text-xs focus:border-solid focus:border-riso-orange focus:ring-1 focus:ring-riso-orange"
                     >
                       <option value="" disabled className="bg-paper-stock">Select Future Drop Point</option>
                       <option value="Library Front Desk" className="bg-paper-stock">Library Front Desk</option>
@@ -534,7 +534,7 @@ export default function ReportItemPage() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full flex items-center justify-center min-h-[46px] border-2 border-ink-black font-mono font-bold text-xs uppercase bg-paper-stock text-ink-black hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50 mt-4"
+            className="w-full flex items-center justify-center min-h-[46px] border-2 border-[#201D1A] font-mono font-bold text-xs uppercase bg-paper-stock text-[#201D1A] hover:bg-ink-black/5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50 mt-4"
           >
             {isPending ? "RUNNING PRESS..." : "PRINT NOTICE FLYER"}
           </button>
