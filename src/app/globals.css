@@ -159,13 +159,13 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 body {
-  background-color: var(--paper-stock);
+  background-color: #F2EEE4 !important;
   background-image: 
     radial-gradient(var(--paper-grain) 1.2px, transparent 0),
     radial-gradient(var(--paper-grain) 1.2px, transparent 0);
   background-size: 8px 8px;
   background-position: 0 0, 4px 4px;
-  color: var(--ink-black);
+  color: #201D1A !important;
   font-family: 'Space Grotesk', var(--font-space-grotesk), sans-serif;
   margin: 0;
   position: relative;

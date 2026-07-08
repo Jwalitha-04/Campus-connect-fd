@@ -113,7 +113,7 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col p-4 md:p-8 font-sans max-w-7xl mx-auto gap-8 select-none">
+    <div className="w-full min-h-screen bg-[#F2EEE4] flex flex-col p-4 md:p-8 font-sans max-w-7xl mx-auto gap-8 select-none text-[#201D1A]">
       
       {/* HEADER SECTION (Printed Header Card - paper-stock, solid border, no rounded corners, grain texture) */}
       <header className="w-full bg-[#F2EEE4] bg-riso-run border-2 border-[#201D1A] rounded-none p-5 md:p-6 shadow-[3px_3px_0px_#201D1A] flex flex-col md:grid md:grid-cols-3 gap-6 items-center relative z-20 -rotate-0.5">
