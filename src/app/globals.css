@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Permanent+Marker&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --paper-stock: #F2EEE4;
+  --paper-grain: rgba(30,25,15,0.06);
+  --ink-black: #201D1A;
+  --ink-soft: rgba(32, 29, 26, 0.6);
+  --riso-orange: #8C2A2A;
+  --riso-marine: #8C2A2A;
+  --riso-violet: #8C2A2A;
+  --riso-yellow: #8C2A2A;
+  --tab-perforation: rgba(32,29,26,0.3);
+  --success-ink: #1B8555;
+
+  /* Colored Paper stocks */
+  --riso-orange-paper: #FFF7F7;
+  --riso-marine-paper: #FFF7F7;
+  --riso-violet-paper: #FFF7F7;
+  --riso-yellow-paper: #FFFDF5;
+
+  /* Custom Pod Theme variables */
+  --pod-surface: #FFFFFF;
+  --pod-border: #201D1A;
+  --ink: #201D1A;
+  --ink-soft-custom: #5C554F;
+}
+
+.dark {
+  --paper-stock: #181614;
+  --paper-grain: rgba(255,255,255,0.04);
+  --ink-black: #F2EEE4;
+  --ink-soft: rgba(242, 238, 228, 0.6);
+  --riso-orange: #A63C3C;
+  --riso-marine: #A63C3C;
+  --riso-violet: #A63C3C;
+  --riso-yellow: #A63C3C;
+  --tab-perforation: rgba(242,238,228,0.3);
+  --success-ink: #2DB57B;
+
+  /* Colored Paper stocks (Dark mode) */
+  --riso-orange-paper: #2D1A1A;
+  --riso-marine-paper: #2D1A1A;
+  --riso-violet-paper: #2D1A1A;
+  --riso-yellow-paper: #2D1A1A;
+
+  /* Custom Pod Theme variables (Dark mode) */
+  --pod-surface: #201D1A;
+  --pod-border: #F2EEE4;
+  --ink: #F2EEE4;
+  --ink-soft-custom: #A8A096;
+}
+
+@theme {
+  --color-paper-stock: var(--paper-stock);
+  --color-ink-black: var(--ink-black);
+  --color-ink-soft: var(--ink-soft);
+  --color-riso-orange: var(--riso-orange);
+  --color-riso-marine: var(--riso-marine);
+  --color-riso-violet: var(--riso-violet);
+  --color-riso-yellow: var(--riso-yellow);
+  --color-success-ink: var(--success-ink);
+
+  --color-riso-orange-paper: var(--riso-orange-paper);
+  --color-riso-marine-paper: var(--riso-marine-paper);
+  --color-riso-violet-paper: var(--riso-violet-paper);
+  --color-riso-yellow-paper: var(--riso-yellow-paper);
+
+  --color-pod-surface: var(--pod-surface);
+  --color-pod-border: var(--pod-border);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft-custom);
+  --color-base: var(--paper-stock);
+
+  --font-display: 'Archivo Black', var(--font-archivo-black), sans-serif;
+  --font-sans: 'Space Grotesk', var(--font-space-grotesk), sans-serif;
+  --font-hand: 'Permanent Marker', var(--font-permanent-marker), cursive;
+  --font-mono: 'Space Mono', var(--font-space-mono), monospace;
+
+  --animate-press-print-in: press-print-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-misreg-settle: misreg-settle 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  --animate-tab-tear: tab-tear 0.6s cubic-bezier(0.3, 0.8, 0.4, 0.95) forwards;
+  --animate-staple-snap: staple-snap 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --animate-stamp-thud: stamp-thud 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Reset all link states to inherit color from parent by default */
+a, a:link, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+/* Safety overrides to prevent external/injected tags from overriding accent or soft ink colors */
+.text-ink-soft, 
+.text-ink-soft a:link, 
+.text-ink-soft a:visited, 
+[style*="rgba(32, 29, 26, 0.6)"], 
+[style*="rgba(32, 29, 26, 0.6)"] a:link,
+[style*="rgba(32, 29, 26, 0.6)"] a:visited {
+  color: var(--ink-soft) !important;
+}
+
+.text-\[\#8C2A2A\], 
+.text-\[\#8C2A2A\] a:link,
+.text-\[\#8C2A2A\] a:visited,
+[style*="#8C2A2A"], 
+[style*="#8C2A2A"] a:link,
+[style*="#8C2A2A"] a:visited {
+  color: #8C2A2A !important;
+}
+
+@keyframes press-print-in {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  60% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+  }
+}
+
+@keyframes misreg-settle {
+  0% {
+    transform: translate(4px, -3px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(1.5px, 1.5px);
+    opacity: 0.55;
+  }
+}
+
+@keyframes tab-tear {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(12px) rotate(-6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(60px) rotate(-14deg);
+    opacity: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: transparent;
+  }
+}
+
+@keyframes staple-snap {
+  0% {
+    transform: scaleY(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes stamp-thud {
+  0% {
+    transform: scale(1.8) rotate(-6deg);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(0.92) rotate(-6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(-6deg);
+    opacity: 1;
+  }
+}
+
+body {
+  background-color: var(--paper-stock);
+  background-image: 
+    radial-gradient(var(--paper-grain) 1.2px, transparent 0),
+    radial-gradient(var(--paper-grain) 1.2px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  color: var(--ink-black);
+  font-family: 'Space Grotesk', var(--font-space-grotesk), sans-serif;
+  margin: 0;
+  position: relative;
+}
+
+/* Layered ink overlays for rich multi-color runs */
+.bg-riso-run {
+  background-image: 
+    linear-gradient(135deg, rgba(140,42,42,0.03) 0%, transparent 60%),
+    linear-gradient(225deg, rgba(140,42,42,0.03) 0%, transparent 60%),
+    linear-gradient(45deg, rgba(140,42,42,0.03) 0%, transparent 60%);
+}
+
+/* Perforation Utility */
+.perf-line {
+  background-image: linear-gradient(to right, var(--tab-perforation) 50%, transparent 0%);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+.perf-line-v {
+  background-image: linear-gradient(to bottom, var(--tab-perforation) 50%, transparent 0%);
+  background-size: 1px 6px;
+  background-repeat: repeat-y;
+}
+
+/* Dual Color Offset Misregistration (Wow effect) */
+.riso-ghost-color {
+  position: relative;
+}
+
+.riso-ghost-color::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--riso-orange);
+  opacity: 0.55;
+  transform: translate(-1.5px, -1.5px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.riso-ghost-color::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--riso-orange);
+  opacity: 0.65;
+  transform: translate(1.5px, 1.5px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.riso-ghost-color:hover::after {
+  transform: translate(-2.5px, -2.5px);
+  transition: transform 0.1s ease-out;
+}
+
+.riso-ghost-color:hover::before {
+  transform: translate(2.5px, 2.5px);
+  transition: transform 0.1s ease-out;
+}
+
+/* Standard Riso ghost */
+.riso-ghost {
+  position: relative;
+}
+
+.riso-ghost::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--section-ink, var(--riso-orange));
+  opacity: 0.6;
+  transform: translate(1.5px, 1.5px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.riso-ghost:hover::after {
+  transform: translate(2.5px, 2.5px);
+  transition: transform 0.1s ease-out;
+}
+
+/* Halftone Pattern Background */
+.bg-halftone {
+  background-image: radial-gradient(circle, var(--section-ink, var(--riso-orange)) 1.2px, transparent 1.2px);
+  background-size: 4px 4px;
+}
+
+/* Printed Stamp details */
+.stamp-circle {
+  border: 3px double currentColor;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 8px;
+  text-align: center;
+  line-height: 1;
+  transform: rotate(-10deg);
+}
+
+/* Washi Tape strips (Translucent colorful tape) */
+.washi-tape-orange {
+  background-color: rgba(140, 42, 42, 0.45);
+  border-left: 2px dashed rgba(140, 42, 42, 0.6);
+  border-right: 2px dashed rgba(140, 42, 42, 0.6);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.washi-tape-marine {
+  background-color: rgba(166, 60, 60, 0.45);
+  border-left: 2px dashed rgba(166, 60, 60, 0.6);
+  border-right: 2px dashed rgba(166, 60, 60, 0.6);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.washi-tape-violet {
+  background-color: rgba(124, 36, 36, 0.4);
+  border-left: 2px dashed rgba(124, 36, 36, 0.55);
+  border-right: 2px dashed rgba(124, 36, 36, 0.55);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.washi-tape-yellow {
+  background-color: rgba(140, 42, 42, 0.55);
+  border-left: 2px dashed rgba(140, 42, 42, 0.65);
+  border-right: 2px dashed rgba(140, 42, 42, 0.65);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Infinite Scrolling Ticker Animation */
+@keyframes ticker-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 25s linear infinite;
+}
+
+/* Blinking Typewriter Input Caret */
+@keyframes caret-blink {
+  0%, 100% { caret-color: #8C2A2A; }
+  50% { caret-color: transparent; }
+}
+
+.typewriter-caret {
+  animation: caret-blink 0.9s step-end infinite;
+}
+
+@utility bg-gradient-teal {
+  background-image: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+}
+
+@utility bg-gradient-amber {
+  background-image: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
