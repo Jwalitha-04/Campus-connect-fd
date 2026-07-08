@@ -139,7 +139,10 @@ export default function HomeDashboard({ profile, initialNotifications }: HomeDas
           
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="font-serif text-sm md:text-base font-black uppercase tracking-wider text-[#201D1A] whitespace-nowrap">
+              <h2 
+                className="font-serif text-sm md:text-base font-black uppercase tracking-wider text-[#201D1A] whitespace-nowrap"
+                style={{ color: "#201D1A" }}
+              >
                 {profile?.display_name || "Campus Member"}
               </h2>
               {/* Role Tag: small dashed-border rectangle tag, maroon text and border */}
