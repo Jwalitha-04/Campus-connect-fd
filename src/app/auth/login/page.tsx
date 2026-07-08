@@ -26,7 +26,7 @@ const bottomNotices = [
   "📰 Today's Notice Runs Active"
 ];
 
-export default function LoginPage() {
+export default function LoginPage({ searchParams }: { searchParams?: { error?: string } }) {
   const [state, formAction, isPending] = useActionState(login, null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -162,6 +162,11 @@ export default function LoginPage() {
               {state?.error && (
                 <div className="p-3 border border-dashed border-[#8C2A2A] text-[#8C2A2A] text-xs font-mono font-bold">
                   ⚠️ {state.error}
+                </div>
+              )}
+              {searchParams?.error && (
+                <div className="p-3 border border-dashed border-[#8C2A2A] text-[#8C2A2A] text-xs font-mono font-bold">
+                  ⚠️ Google Auth Error: {searchParams.error}
                 </div>
               )}
 
