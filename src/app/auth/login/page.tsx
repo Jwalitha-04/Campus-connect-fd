@@ -2,7 +2,8 @@
 
 import React, { useActionState, useState } from "react";
 import Link from "next/link";
-import { login, signInWithGoogle } from "@/app/auth/actions";
+import { login } from "@/app/auth/actions";
+import { createClient } from "@/utils/supabase/client";
 
 const topNotices = [
   "📌 Lost Wallet Near Library",
@@ -29,6 +30,16 @@ const bottomNotices = [
 export default function LoginPage({ searchParams }: { searchParams?: { error?: string } }) {
   const [state, formAction, isPending] = useActionState(login, null);
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleGoogleSignIn = async () => {
+    const supabase = createClient();
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+  };
 
   // Perforated bottom edge clip path (repeating 1% zigzag)
   const cardClipPath = "polygon(0 0, 100% 0, 100% 97%, 99% 98%, 98% 97%, 97% 98%, 96% 97%, 95% 98%, 94% 97%, 93% 98%, 92% 97%, 91% 98%, 90% 97%, 89% 98%, 88% 97%, 87% 98%, 86% 97%, 85% 98%, 84% 97%, 83% 98%, 82% 97%, 81% 98%, 80% 97%, 79% 98%, 78% 97%, 77% 98%, 76% 97%, 75% 98%, 74% 97%, 73% 98%, 72% 97%, 71% 98%, 70% 97%, 69% 98%, 68% 97%, 67% 98%, 66% 97%, 65% 98%, 64% 97%, 63% 98%, 62% 97%, 61% 98%, 60% 97%, 59% 98%, 58% 97%, 56% 97%, 55% 98%, 54% 97%, 53% 98%, 52% 97%, 51% 98%, 50% 97%, 49% 98%, 48% 97%, 47% 98%, 46% 97%, 45% 98%, 44% 97%, 43% 98%, 42% 97%, 41% 98%, 40% 97%, 39% 98%, 38% 97%, 37% 98%, 36% 97%, 35% 98%, 34% 97%, 33% 98%, 32% 97%, 31% 98%, 30% 97%, 29% 98%, 28% 97%, 27% 98%, 26% 97%, 25% 98%, 24% 97%, 23% 98%, 22% 97%, 21% 98%, 20% 97%, 19% 98%, 18% 97%, 17% 98%, 16% 97%, 15% 98%, 14% 97%, 13% 98%, 12% 97%, 11% 98%, 10% 97%, 9% 98%, 8% 97%, 7% 98%, 6% 97%, 5% 98%, 4% 97%, 3% 98%, 2% 97%, 1% 98%, 0 97%)";
@@ -239,13 +250,13 @@ export default function LoginPage({ searchParams }: { searchParams?: { error?: s
           </div>
 
           {/* Google Sign In Form */}
-          <form action={signInWithGoogle}>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center min-h-[44px] border border-dashed border-[rgba(32,29,26,0.4)] bg-transparent text-[#201D1A] font-mono text-sm lowercase font-bold tracking-wider shadow-[2px_2px_0px_rgba(32,29,26,0.15)] hover:bg-[#201D1A]/5 hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_#8C2A2A] transition-all cursor-pointer gap-2 rounded-none"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" style={{ filter: "grayscale(100%) brightness(40%) sepia(20%)" }}>
-                <path
+          <button
+            onClick={handleGoogleSignIn}
+            type="button"
+            className="w-full flex items-center justify-center min-h-[44px] border border-dashed border-[rgba(32,29,26,0.4)] bg-transparent text-[#201D1A] font-mono text-sm lowercase font-bold tracking-wider shadow-[2px_2px_0px_rgba(32,29,26,0.15)] hover:bg-[#201D1A]/5 hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_#8C2A2A] transition-all cursor-pointer gap-2 rounded-none"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" style={{ filter: "grayscale(100%) brightness(40%) sepia(20%)" }}>
+              <path
                   fill="#4285F4"
                   d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.17z"
                 />
@@ -261,10 +272,9 @@ export default function LoginPage({ searchParams }: { searchParams?: { error?: s
                   fill="#EA4335"
                   d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.22 0 12 0 7.37 0 3.27 2.65 1.29 6.51l3.98 3.15c.95-2.85 3.6-4.91 6.73-4.91z"
                 />
-              </svg>
-              <span>continue with google</span>
-            </button>
-          </form>
+            </svg>
+            <span>continue with google</span>
+          </button>
 
           {/* Footer Navigation */}
           <div className="mt-8 text-center text-xs font-mono text-[#201D1A]/60 border-t-2 border-dashed border-[rgba(32,29,26,0.25)] pt-4">
