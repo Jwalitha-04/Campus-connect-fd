@@ -26,30 +26,7 @@
   --ink-soft-custom: #5C554F;
 }
 
-.dark {
-  --paper-stock: #181614;
-  --paper-grain: rgba(255,255,255,0.04);
-  --ink-black: #F2EEE4;
-  --ink-soft: rgba(242, 238, 228, 0.6);
-  --riso-orange: #A63C3C;
-  --riso-marine: #A63C3C;
-  --riso-violet: #A63C3C;
-  --riso-yellow: #A63C3C;
-  --tab-perforation: rgba(242,238,228,0.3);
-  --success-ink: #2DB57B;
 
-  /* Colored Paper stocks (Dark mode) */
-  --riso-orange-paper: #2D1A1A;
-  --riso-marine-paper: #2D1A1A;
-  --riso-violet-paper: #2D1A1A;
-  --riso-yellow-paper: #2D1A1A;
-
-  /* Custom Pod Theme variables (Dark mode) */
-  --pod-surface: #201D1A;
-  --pod-border: #F2EEE4;
-  --ink: #F2EEE4;
-  --ink-soft-custom: #A8A096;
-}
 
 @theme {
   --color-paper-stock: var(--paper-stock);
